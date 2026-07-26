@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mehmet Fatih İçin — Yazılım & Veritabanı Uzmanı</title>
+<meta name="description" content="15 yıllık deneyime sahip yazılım ve veritabanı uzmanı. Kurumsal sistemler, .NET Core, MSSQL ve mobil uygulama geliştirme. İstanbul, Türkiye." />
+<meta name="author" content="Mehmet Fatih İçin" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Mehmet Fatih İçin — Yazılım & Veritabanı Uzmanı" />
+<meta property="og:description" content="15 yıllık deneyim · Kurumsal yazılım · Mobil uygulama geliştirici" />
+<meta property="og:url" content="https://mfatihicin.github.io" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#080a12;
+    --bg-2:#0d1019;
+    --card:rgba(255,255,255,.028);
+    --card-2:rgba(255,255,255,.05);
+    --brd:rgba(255,255,255,.07);
+    --brd-h:rgba(129,140,248,.42);
+    --txt:#eceef6;
+    --dim:#9aa0b9;
+    --mute:#636880;
+    --accent:#818cf8;
+    --accent-2:#2dd4bf;
+    --grad:linear-gradient(120deg,#818cf8,#6366f1 50%,#2dd4bf);
+    --radius:16px;
+    --maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
+  .ico{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+  a{color:inherit}
+
+  /* backdrop */
+  .bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .bg::before{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+    background-size:54px 54px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 100%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.22}
+  .orb.a{width:520px;height:520px;background:#6366f1;top:-180px;left:-120px}
+  .orb.b{width:440px;height:440px;background:#14b8a6;top:36%;right:-160px}
+  .orb.c{width:380px;height:380px;background:#7c3aed;bottom:-120px;left:28%}
+  .wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(8,10,18,.72);border-bottom:1px solid var(--brd)}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:800;letter-spacing:-.02em;font-size:1rem;display:flex;align-items:center;gap:11px}
+  .brand .mono{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;font-size:.82rem;color:#080a12;font-weight:800;letter-spacing:0}
+  .nav-links{display:flex;gap:2px}
+  .nav-links a{color:var(--dim);text-decoration:none;font-size:.9rem;font-weight:500;padding:8px 14px;border-radius:9px;transition:.2s}
+  .nav-links a:hover{color:var(--txt);background:var(--card-2)}
+  .nav-cta{text-decoration:none;font-size:.88rem;font-weight:600;color:#080a12;background:var(--txt);padding:9px 16px;border-radius:10px;transition:.2s}
+  .nav-cta:hover{opacity:.88}
+  @media(max-width:760px){.nav-links,.nav-cta{display:none}}
+
+  /* HERO */
+  header{padding:96px 0 64px;text-align:center}
+  .avatar{width:100px;height:100px;border-radius:26px;background:var(--grad);display:grid;place-items:center;margin:0 auto 26px;font-size:2rem;font-weight:800;color:#080a12;box-shadow:0 24px 60px -22px rgba(99,102,241,.75);position:relative}
+  .avatar::after{content:"";position:absolute;inset:-2px;border-radius:28px;background:var(--grad);z-index:-1;filter:blur(16px);opacity:.45}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--accent-2);background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.24);padding:6px 14px;border-radius:999px;margin-bottom:24px;font-weight:600}
+  .badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent-2);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(45,212,191,.5)}70%{box-shadow:0 0 0 9px rgba(45,212,191,0)}100%{box-shadow:0 0 0 0 rgba(45,212,191,0)}}
+  h1{font-size:clamp(2.3rem,6vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.06;margin-bottom:18px}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .role{font-size:clamp(1.02rem,2.4vw,1.28rem);color:var(--dim);font-weight:500;margin-bottom:22px}
+  .meta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+  .meta-row span{display:inline-flex;align-items:center;gap:7px;font-size:.86rem;color:var(--dim);background:var(--card);border:1px solid var(--brd);padding:7px 14px;border-radius:10px}
+  .meta-row .ico{font-size:1rem;color:var(--accent)}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:.95rem;padding:13px 24px;border-radius:12px;transition:.25s;border:1px solid transparent}
+  .btn .ico{font-size:1.15rem}
+  .btn.primary{background:var(--grad);color:#080a12}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 16px 38px -14px rgba(99,102,241,.75)}
+  .btn.ghost{background:var(--card-2);border-color:var(--brd);color:var(--txt)}
+  .btn.ghost:hover{border-color:var(--brd-h);transform:translateY(-2px)}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:52px 0 8px}
+  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--card);border:1px solid var(--brd);border-radius:var(--radius);padding:22px 18px;text-align:center;transition:.25s}
+  .stat:hover{border-color:var(--brd-h);transform:translateY(-3px)}
+  .stat .num{font-size:1.95rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.02em}
+  .stat .lbl{font-size:.8rem;color:var(--dim);margin-top:4px}
+
+  section{padding:60px 0;scroll-margin-top:76px}
+  .sec-head{margin-bottom:36px}
+  .kicker{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .kicker::before{content:"";width:26px;height:1px;background:var(--accent);opacity:.6}
+  .sec-head h2{font-size:clamp(1.65rem,4vw,2.3rem);font-weight:800;letter-spacing:-.02em}
+  .sec-head p{color:var(--dim);margin-top:10px;max-width:640px}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:22px;align-items:start}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--brd);border-radius:var(--radius);padding:30px}
+  .card p{color:var(--dim);margin-bottom:14px}
+  .card p:last-child{margin-bottom:0}
+  .card strong{color:var(--txt);font-weight:600}
+  .hl{list-style:none;display:flex;flex-direction:column;gap:16px}
+  .hl li{display:flex;gap:13px;align-items:flex-start;color:var(--dim);font-size:.93rem}
+  .hl .ic{flex-shrink:0;width:36px;height:36px;border-radius:10px;background:rgba(129,140,248,.1);display:grid;place-items:center;color:var(--accent);font-size:1.05rem}
+
+  /* SKILLS */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:820px){.skills{grid-template-columns:1fr}}
+  .skill{background:var(--card);border:1px solid var(--brd);border-radius:var(--radius);padding:24px;transition:.25s}
+  .skill:hover{border-color:var(--brd-h);transform:translateY(-3px)}
+  .skill h3{font-size:1rem;margin-bottom:16px;display:flex;align-items:center;gap:11px}
+  .skill h3 .ic{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(129,140,248,.9),rgba(45,212,191,.85));display:grid;place-items:center;font-size:1.05rem;color:#080a12}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:.81rem;font-weight:500;color:var(--dim);background:rgba(255,255,255,.035);border:1px solid var(--brd);padding:6px 12px;border-radius:8px;transition:.2s}
+  .chip:hover{color:var(--txt);border-color:var(--brd-h)}
+
+  /* APPS */
+  .apps{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:820px){.apps{grid-template-columns:1fr}}
+  .app{position:relative;background:var(--card);border:1px solid var(--brd);border-radius:var(--radius);padding:28px;transition:.28s;overflow:hidden}
+  .app:hover{border-color:var(--brd-h);transform:translateY(-4px)}
+  .app.feature{grid-column:1/-1;background:linear-gradient(135deg,rgba(129,140,248,.08),rgba(45,212,191,.04))}
+  .app-top{display:flex;align-items:center;gap:15px;margin-bottom:15px}
+  .app-icon{width:58px;height:58px;border-radius:15px;display:grid;place-items:center;font-size:1.5rem;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 12px 30px -12px rgba(0,0,0,.6)}
+  .app-icon.sf{background:linear-gradient(135deg,#fb7185,#f97316)}
+  .app-icon.pk{background:linear-gradient(135deg,#34d399,#059669)}
+  .app-icon.mp{background:linear-gradient(135deg,#818cf8,#6366f1)}
+  .app-top h3{font-size:1.22rem;font-weight:700}
+  .app-top .sub{font-size:.84rem;color:var(--mute)}
+  .app-status{position:absolute;top:20px;right:20px;font-size:.7rem;font-weight:600;padding:5px 11px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+  .app-status .ico{font-size:.85rem}
+  .st-live{background:rgba(45,212,191,.12);color:var(--accent-2);border:1px solid rgba(45,212,191,.28)}
+  .st-dev{background:rgba(129,140,248,.1);color:var(--accent);border:1px solid rgba(129,140,248,.28)}
+  .app p{color:var(--dim);font-size:.91rem;margin-bottom:16px}
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 22px;margin:16px 0}
+  @media(max-width:560px){.feat{grid-template-columns:1fr}}
+  .feat li{list-style:none;display:flex;gap:9px;align-items:center;color:var(--dim);font-size:.87rem}
+  .feat .ico{color:var(--accent-2);font-size:1rem}
+  .app-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+  .app-tags .chip{font-size:.75rem;padding:5px 10px}
+
+  /* STORE BADGES */
+  .stores{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+  .store{display:inline-flex;align-items:center;gap:11px;text-decoration:none;padding:10px 18px 10px 15px;border-radius:12px;background:#000;color:#fff;border:1px solid rgba(255,255,255,.16);transition:.22s;min-width:170px}
+  .store:hover{border-color:#fff;transform:translateY(-2px);background:#0a0a0a}
+  .store svg{width:26px;height:26px;flex-shrink:0}
+  .store .txt{display:flex;flex-direction:column;line-height:1.15}
+  .store .txt small{font-size:.62rem;opacity:.82;letter-spacing:.02em}
+  .store .txt b{font-size:1.02rem;font-weight:600;letter-spacing:-.01em}
+
+  /* PROJECTS */
+  .projs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(max-width:820px){.projs{grid-template-columns:1fr}}
+  .proj{background:var(--card);border:1px solid var(--brd);border-radius:var(--radius);padding:24px;transition:.25s;display:flex;flex-direction:column}
+  .proj:hover{border-color:var(--brd-h);transform:translateY(-3px)}
+  .proj-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+  .proj-h h3{font-size:1.06rem;font-weight:700;line-height:1.3}
+  .proj-yr{font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--accent);white-space:nowrap;flex-shrink:0;padding-top:3px}
+  .proj p{color:var(--dim);font-size:.87rem;margin-bottom:16px;flex:1}
+  .proj-foot{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .proj-tags .chip{font-size:.71rem;padding:4px 9px}
+  .proj-link{color:var(--accent-2);text-decoration:none;font-size:.81rem;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+  .proj-link .ico{font-size:.95rem}
+  .proj-link:hover{text-decoration:underline}
+  .proj-lock{color:var(--mute);font-size:.81rem;font-weight:500;display:inline-flex;align-items:center;gap:5px}
+  .proj-lock .ico{font-size:.9rem}
+
+  /* TWO COL */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:820px){.two{grid-template-columns:1fr}}
+  .panel{background:var(--card);border:1px solid var(--brd);border-radius:var(--radius);padding:28px}
+  .panel h3{font-size:1.1rem;margin-bottom:22px;display:flex;align-items:center;gap:11px}
+  .panel h3 .ic{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(129,140,248,.9),rgba(45,212,191,.85));display:grid;place-items:center;font-size:1.05rem;color:#080a12}
+  .tl{position:relative;padding-left:24px}
+  .tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),transparent)}
+  .tl-item{position:relative;margin-bottom:22px}
+  .tl-item:last-child{margin-bottom:0}
+  .tl-item::before{content:"";position:absolute;left:-23px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(129,140,248,.14)}
+  .tl-item .yr{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent)}
+  .tl-item h4{font-size:.96rem;font-weight:600;margin:3px 0}
+  .tl-item .org{font-size:.84rem;color:var(--mute)}
+  .tl-item p{font-size:.84rem;color:var(--dim);margin-top:6px}
+
+  /* CONTACT */
+  .contact{text-align:center;background:linear-gradient(135deg,rgba(129,140,248,.09),rgba(45,212,191,.05));border:1px solid var(--brd);border-radius:24px;padding:56px 30px;margin-top:16px}
+  .contact .kicker{justify-content:center}
+  .contact .kicker::before{display:none}
+  .contact h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+  .contact p{color:var(--dim);max-width:500px;margin:0 auto 30px}
+  .contact-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  footer{text-align:center;padding:44px 0 60px;color:var(--mute);font-size:.84rem}
+  footer .social{display:flex;gap:10px;justify-content:center;margin-bottom:20px}
+  footer .social a{width:44px;height:44px;border-radius:12px;background:var(--card);border:1px solid var(--brd);display:grid;place-items:center;color:var(--dim);text-decoration:none;transition:.25s}
+  footer .social a .ico{font-size:1.15rem}
+  footer .social a:hover{color:var(--txt);border-color:var(--brd-h);transform:translateY(-3px)}
+  .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="bg"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+
+<!-- reusable svg symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-merge" viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 9v3a9 9 0 0 0 9 9"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l3-4 3 2 4-6"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.8a5.3 5.3 0 0 0-1.5-3.7 4.9 4.9 0 0 0-.1-3.7s-1.2-.4-4 1.4a13.4 13.4 0 0 0-7 0C4.4 2 3.2 2.4 3.2 2.4a4.9 4.9 0 0 0-.1 3.7 5.3 5.3 0 0 0-1.5 3.7c0 5.3 3.2 6.5 6.2 6.8A3.4 3.4 0 0 0 7 20.4V24"/></symbol>
+</svg>
+
+<nav>
+  <div class="nav-in">
+    <div class="brand"><span class="mono">Mİ</span>Mehmet Fatih İçin</div>
+    <div class="nav-links">
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#uzmanlik">Uzmanlık</a>
+      <a href="#uygulamalar">Uygulamalar</a>
+      <a href="#projeler">Projeler</a>
+    </div>
+    <a class="nav-cta" href="#iletisim">İletişim</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="avatar">Mİ</div>
+    <div class="badge"><span class="pulse"></span>Yeni projelere & iş birliklerine açık</div>
+    <h1>Mehmet Fatih İçin<br><span class="g">Yazılım &amp; Veritabanı Uzmanı</span></h1>
+    <p class="role">Kurumsal sistemler · .NET mimarisi · Mobil uygulama geliştirme</p>
+    <div class="meta-row">
+      <span><svg class="ico"><use href="#i-pin"/></svg>İstanbul, Türkiye</span>
+      <span><svg class="ico"><use href="#i-bag"/></svg>15+ yıl deneyim</span>
+      <span><svg class="ico"><use href="#i-building"/></svg>Cumhurbaşkanlığı Millî Saraylar</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#iletisim"><svg class="ico"><use href="#i-mail"/></svg>İletişime Geç</a>
+      <a class="btn ghost" href="#uygulamalar"><svg class="ico"><use href="#i-phone"/></svg>Uygulamalarım</a>
+    </div>
+  </header>
+
+  <div class="stats reveal">
+    <div class="stat"><div class="num">15+</div><div class="lbl">Yıl Deneyim</div></div>
+    <div class="stat"><div class="num">8+</div><div class="lbl">Kurumsal Sistem</div></div>
+    <div class="stat"><div class="num">3</div><div class="lbl">Mobil Uygulama</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">Dil Desteği</div></div>
+  </div>
+
+  <section id="hakkimda" class="reveal">
+    <div class="sec-head">
+      <div class="kicker">Hakkımda</div>
+      <h2>Kurumsal deneyim, indie ruhu</h2>
+      <p>Kritik kamu sistemlerini uçtan uca geliştiren bir uzman; boş zamanlarında ise dünya çapında yayınlanan mobil uygulamalar tasarlayan bir indie geliştirici.</p>
+    </div>
+    <div class="about-grid">
+      <div class="card">
+        <p>15 yıla yakın deneyime sahip bir <strong>yazılım ve veritabanı uzmanıyım.</strong> T.C. Cumhurbaşkanlığı Millî Saraylar bünyesinde karmaşık sistemlerin entegrasyonunu ve yazılım geliştirme süreçlerini uçtan uca yönetiyorum.</p>
+        <p><strong>E-Devlet, banka sistemleri, KPS, YÖK ve TURSAB</strong> gibi kritik platformlarla entegrasyonlarda analiz, geliştirme, test ve canlıya geçiş süreçlerini yürüterek dijital dönüşüm projelerini zamanında ve bütçeye uygun tamamladım.</p>
+        <p>Web tabanlı uygulamalar, veritabanı yönetimi ve analitik raporlama alanlarında derin bir bilgi birikimine sahibim. Son yıllarda ise <strong>React Native</strong> ile çok dilli, çok platformlu mobil uygulamalar geliştiriyorum.</p>
+      </div>
+      <ul class="hl">
+        <li><span class="ic"><svg class="ico"><use href="#i-building"/></svg></span><div>Bilet otomasyonu, ERP, API platformu ve kurumsal portalları <strong style="color:var(--txt)">sıfırdan</strong> tasarlayıp geliştirdim.</div></li>
+        <li><span class="ic"><svg class="ico"><use href="#i-merge"/></svg></span><div>RFID, turnike, kiosk ve kartlı geçiş gibi <strong style="color:var(--txt)">donanım entegrasyonlarında</strong> gerçek zamanlı çözümler ürettim.</div></li>
+        <li><span class="ic"><svg class="ico"><use href="#i-phone"/></svg></span><div>App Store &amp; Google Play'de yayınlanan, <strong style="color:var(--txt)">10 dil destekli</strong> mobil uygulamalar geliştiriyorum.</div></li>
+        <li><span class="ic"><svg class="ico"><use href="#i-chart"/></svg></span><div>Kullanıcı deneyimini <strong style="color:var(--txt)">%90 artıran</strong> yenilikçi çözümler ve karar destek raporları sundum.</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="uzmanlik" class="reveal">
+    <div class="sec-head">
+      <div class="kicker">Uzmanlık Alanları</div>
+      <h2>Teknoloji yığını</h2>
+      <p>Backend'den veritabanına, kurumsal entegrasyonlardan mobil uygulamaya kadar uçtan uca geliştirme yeteneği.</p>
+    </div>
+    <div class="skills">
+      <div class="skill">
+        <h3><span class="ic"><svg class="ico"><use href="#i-server"/></svg></span>Backend &amp; API</h3>
+        <div class="chips"><span class="chip">.NET Core</span><span class="chip">C#</span><span class="chip">ASP.NET Core</span><span class="chip">REST API</span><span class="chip">SOAP</span><span class="chip">JWT</span><span class="chip">Swagger</span><span class="chip">JSON</span></div>
+      </div>
+      <div class="skill">
+        <h3><span class="ic"><svg class="ico"><use href="#i-db"/></svg></span>Veritabanı</h3>
+        <div class="chips"><span class="chip">MSSQL</span><span class="chip">Oracle</span><span class="chip">MySQL</span><span class="chip">SQL Optimizasyon</span><span class="chip">Transaction</span><span class="chip">Cache</span></div>
+      </div>
+      <div class="skill">
+        <h3><span class="ic"><svg class="ico"><use href="#i-layout"/></svg></span>Frontend &amp; Web</h3>
+        <div class="chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">jQuery</span><span class="chip">AJAX</span><span class="chip">Bootstrap</span></div>
+      </div>
+      <div class="skill">
+        <h3><span class="ic"><svg class="ico"><use href="#i-phone"/></svg></span>Mobil</h3>
+        <div class="chips"><span class="chip">React Native</span><span class="chip">TypeScript</span><span class="chip">iOS / WidgetKit</span><span class="chip">Android</span><span class="chip">Wear OS</span><span class="chip">Apple Watch</span></div>
+      </div>
+      <div class="skill">
+        <h3><span class="ic"><svg class="ico"><use href="#i-merge"/></svg></span>Entegrasyon</h3>
+        <div class="chips"><span class="chip">E-Devlet</span><span class="chip">RFID</span><span class="chip">Active Directory</span><span class="chip">Turnike / Kiosk</span><span class="chip">PDKS</span><span class="chip">Ödeme Sistemleri</span></div>
+      </div>
+      <div class="skill">
+        <h3><span class="ic"><svg class="ico"><use href="#i-compass"/></svg></span>Yaklaşım</h3>
+        <div class="chips"><span class="chip">Sistem Analizi</span><span class="chip">Analitik Düşünme</span><span class="chip">Problem Çözme</span><span class="chip">Rol Bazlı Güvenlik</span><span class="chip">Performans</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="uygulamalar" class="reveal">
+    <div class="sec-head">
+      <div class="kicker">Kendi Ürünlerim</div>
+      <h2>Mobil uygulamalar</h2>
+      <p>Bağımsız olarak tasarlayıp geliştirdiğim, çok dilli ve çok platformlu mobil uygulamalar.</p>
+    </div>
+    <div class="apps">
+      <div class="app feature">
+        <span class="app-status st-live"><span class="pulse" style="width:6px;height:6px;border-radius:50%;background:var(--accent-2);display:inline-block"></span>Yakında Yayında</span>
+        <div class="app-top">
+          <div class="app-icon sf">SF</div>
+          <div><h3>StreakFlow</h3><div class="sub">Alışkanlık Takibi &amp; Streak · iOS · Android · Watch</div></div>
+        </div>
+        <p>Hedeflerine sadık kalmanı sağlayan modern bir alışkanlık takip uygulaması. Akıllı hatırlatıcılar, streak (seri) takibi, ana ekran widget'ları, Apple Watch &amp; Wear OS desteği ve 10 dilde tam yerelleştirme.</p>
+        <ul class="feat">
+          <li><svg class="ico"><use href="#i-check"/></svg>Streak &amp; ilerleme takibi</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Akıllı hatırlatıcılar</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Ana ekran widget'ları</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Apple Watch &amp; Wear OS</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>10 dil desteği</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Health entegrasyonu</li>
+        </ul>
+        <div class="app-tags"><span class="chip">React Native</span><span class="chip">TypeScript</span><span class="chip">Zustand</span><span class="chip">WidgetKit</span><span class="chip">Notifee</span><span class="chip">RevenueCat</span></div>
+        <div class="stores">
+          <a class="store" href="https://apps.apple.com/app/streakflow" target="_blank" rel="noopener">
+            <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM256.5 84c15.4-18.7 26.7-44.7 26.7-70.9 0-3.6-.3-7.3-1-10.2-25.4 1-56 17-74.2 38-14.1 16-27.3 41.9-27.3 68 0 4 .7 8 1 9.3 1.6.3 4.1.6 6.6.6 22.8 0 51.5-15.3 68.2-34.8z"/></svg>
+            <span class="txt"><small>İndir —</small><b>App Store</b></span>
+          </a>
+          <a class="store" href="https://play.google.com/store/apps/details?id=com.mfatihicin.streakflow" target="_blank" rel="noopener">
+            <svg viewBox="0 0 512 512"><path fill="#00d3ff" d="M45 15c-6 3-9 9-9 17v448c0 8 3 14 9 17l1 1 251-251v-1L46 14z"/><path fill="#ffce00" d="M377 341l-81-81v-1l81-81 2 1 96 55c27 16 27 41 0 56z"/><path fill="#00f076" d="M379 340l-83-83L45 498c9 9 24 10 40 1z"/><path fill="#ff3a44" d="M379 173L85 14c-16-9-31-8-40 1l251 250z"/></svg>
+            <span class="txt"><small>İndir —</small><b>Google Play</b></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="app">
+        <span class="app-status st-dev">Geliştiriliyor</span>
+        <div class="app-top">
+          <div class="app-icon pk">₺</div>
+          <div><h3>Parakit</h3><div class="sub">Masraf &amp; Borç Takibi</div></div>
+        </div>
+        <p>Kişisel harcamaları ve borç–alacak ilişkilerini sade ve şık bir arayüzle yönetmeni sağlayan finans takip uygulaması.</p>
+        <div class="app-tags"><span class="chip">React Native</span><span class="chip">Finans</span><span class="chip">Çok dilli</span></div>
+      </div>
+
+      <div class="app">
+        <span class="app-status st-dev">Geliştiriliyor</span>
+        <div class="app-top">
+          <div class="app-icon mp">M</div>
+          <div><h3>MasaPlay</h3><div class="sub">Gerçek Zamanlı Çok Oyunculu Oyunlar</div></div>
+        </div>
+        <p>Arkadaşlarınla gerçek zamanlı oynayabileceğin klasik masa oyunları platformu. İlk oyun: Tavla. Colyseus ile gerçek zamanlı senkronizasyon.</p>
+        <div class="app-tags"><span class="chip">React Native</span><span class="chip">Colyseus</span><span class="chip">WebSocket</span><span class="chip">Realtime</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projeler" class="reveal">
+    <div class="sec-head">
+      <div class="kicker">Kurumsal Projeler</div>
+      <h2>Millî Saraylar sistemleri</h2>
+      <p>T.C. Cumhurbaşkanlığı Millî Saraylar bünyesinde uçtan uca tasarlayıp geliştirdiğim kritik kurumsal platformlar.</p>
+    </div>
+    <div class="projs">
+      <div class="proj">
+        <div class="proj-h"><h3>Acenta Portalı (B2B)</h3><span class="proj-yr">2024</span></div>
+        <p>Acentelerin biletleme süreçlerini uçtan uca yönettiği kurumsal B2B satış portalı. Bilet üretimi, QR doğrulama, bakiye yönetimi, kampanya &amp; indirim modülleri.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="chip">.NET Core</span><span class="chip">MSSQL</span><span class="chip">REST</span></div><a class="proj-link" href="https://acente.millisaraylar.gov.tr/" target="_blank" rel="noopener">Ziyaret et<svg class="ico"><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <div class="proj">
+        <div class="proj-h"><h3>Kurumsal ERP Sistemi</h3><span class="proj-yr">2022</span></div>
+        <p>Restorasyon, personel, malzeme ve mali süreçleri tek merkezde toplayan ERP platformu. Proje bazlı maliyet analizi, depo/stok yönetimi, E-Devlet &amp; MYS entegrasyonu.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="chip">.NET Core</span><span class="chip">MSSQL</span><span class="chip">Dashboard</span></div><span class="proj-lock"><svg class="ico"><use href="#i-lock"/></svg>Kurum içi</span></div>
+      </div>
+      <div class="proj">
+        <div class="proj-h"><h3>Kurumsal API Platformu</h3><span class="proj-yr">2020</span></div>
+        <p>Tüm kurumsal uygulamalar için ortak REST API altyapısı. JWT authentication, rol bazlı yetkilendirme, rate limiting, Swagger dokümantasyonu ve merkezi servis mimarisi.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="chip">REST API</span><span class="chip">JWT</span><span class="chip">Swagger</span></div><span class="proj-lock"><svg class="ico"><use href="#i-lock"/></svg>Kurum içi</span></div>
+      </div>
+      <div class="proj">
+        <div class="proj-h"><h3>Merkezi Biletleme &amp; Gişe</h3><span class="proj-yr">2020</span></div>
+        <p>Türkiye genelindeki tüm lokasyonlarda kullanılan merkezi biletleme, gişe satış, rezervasyon ve muhasebe sistemi. Turnike/kiosk donanım entegrasyonları, e-bilet &amp; QR.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="chip">.NET Core</span><span class="chip">Donanım</span><span class="chip">QR</span></div><a class="proj-link" href="https://bilet.millisaraylar.gov.tr" target="_blank" rel="noopener">Ziyaret et<svg class="ico"><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <div class="proj">
+        <div class="proj-h"><h3>Resmî Web Sitesi &amp; E-Ticaret</h3><span class="proj-yr">2019</span></div>
+        <p>Kurumsal web portalı; online e-bilet ve kitap satışı (e-ticaret) entegrasyonu. Çoklu dil, dinamik içerik yönetimi, ödeme entegrasyonu, XSS/CSRF korumaları.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="chip">.NET Core</span><span class="chip">E-Ticaret</span><span class="chip">CMS</span></div><a class="proj-link" href="https://www.millisaraylar.gov.tr" target="_blank" rel="noopener">Ziyaret et<svg class="ico"><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <div class="proj">
+        <div class="proj-h"><h3>Personel &amp; Devam Kontrol (PBS)</h3><span class="proj-yr">2018</span></div>
+        <p>İzin, devam ve geçiş süreçlerini yöneten İK sistemi. PDKS entegrasyonu, kartlı geçiş &amp; turnike yönetimi, izin onay akışları ve dahili AR-GE donanım çözümleri.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="chip">.NET Core</span><span class="chip">PDKS</span><span class="chip">AR-GE</span></div><span class="proj-lock"><svg class="ico"><use href="#i-lock"/></svg>Kurum içi</span></div>
+      </div>
+      <div class="proj">
+        <div class="proj-h"><h3>Tarihi Eser Takip Sistemi</h3><span class="proj-yr">2016</span></div>
+        <p>Kültürel varlıkların korunması ve restorasyon yönetimi. Pasif/aktif RFID ile canlı konum takibi, mobil saha sayımı, dijital imzalı belge yönetimi ve envanter doğrulama.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="chip">RFID</span><span class="chip">Mobil</span><span class="chip">Dijital İmza</span></div><a class="proj-link" href="https://tarihieser.millisaraylar.gov.tr/" target="_blank" rel="noopener">Ziyaret et<svg class="ico"><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <div class="proj">
+        <div class="proj-h"><h3>Diğer Entegrasyonlar</h3><span class="proj-yr">2011+</span></div>
+        <p>Active Directory domain entegrasyonu, ağ &amp; güvenlik kamerası sistemleri, raporlama ve istatistiksel web uygulamaları, karar destek dashboard'ları.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="chip">AD</span><span class="chip">Raporlama</span><span class="chip">BI</span></div><span class="proj-lock">Kurumsal</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="two">
+      <div class="panel">
+        <h3><span class="ic"><svg class="ico"><use href="#i-bag"/></svg></span>Deneyim</h3>
+        <div class="tl">
+          <div class="tl-item">
+            <div class="yr">Eylül 2011 — Günümüz</div>
+            <h4>Yazılım &amp; Veritabanı Uzmanı</h4>
+            <div class="org">T.C. Cumhurbaşkanlığı Millî Saraylar · Bilgi İşlem</div>
+            <p>Yazılım geliştirme, veritabanı yönetimi ve sistem entegrasyonu projelerini uçtan uca yürütüyorum. Dijital dönüşüm projelerinin analiz, geliştirme, test ve canlıya geçiş süreçlerini yönetiyorum.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3><span class="ic"><svg class="ico"><use href="#i-cap"/></svg></span>Eğitim</h3>
+        <div class="tl">
+          <div class="tl-item"><div class="yr">2019 — 2023</div><h4>Yönetim Bilişim Sistemleri (Lisans)</h4><div class="org">Anadolu Üniversitesi</div></div>
+          <div class="tl-item"><div class="yr">2011 — 2014</div><h4>İşletme (Lisans)</h4><div class="org">Anadolu Üniversitesi</div></div>
+          <div class="tl-item"><div class="yr">2008 — 2010</div><h4>Bilgisayar Teknolojisi &amp; Programlama</h4><div class="org">Ordu Üniversitesi (MYO)</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="iletisim" class="reveal">
+    <div class="contact">
+      <div class="kicker">İletişim</div>
+      <h2>Birlikte çalışalım</h2>
+      <p>Yeni bir proje, iş birliği veya danışmanlık için benimle iletişime geçmekten çekinmeyin. En hızlı e-posta üzerinden ulaşırsınız.</p>
+      <div class="contact-btns">
+        <a class="btn primary" href="mailto:mfatihicin@gmail.com"><svg class="ico"><use href="#i-mail"/></svg>mfatihicin@gmail.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/mfatihicin" target="_blank" rel="noopener">
+          <svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .78 0 1.73v20.53C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.73C24 .78 23.2 0 22.22 0z"/></svg>LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="social">
+    <a href="mailto:mfatihicin@gmail.com" title="E-posta"><svg class="ico"><use href="#i-mail"/></svg></a>
+    <a href="https://www.linkedin.com/in/mfatihicin" target="_blank" rel="noopener" title="LinkedIn"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .78 0 1.73v20.53C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.73C24 .78 23.2 0 22.22 0z"/></svg></a>
+    <a href="https://github.com/mfatihicin" target="_blank" rel="noopener" title="GitHub"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .5C5.7.5.5 5.8.5 12.3c0 5.2 3.4 9.6 8 11.2.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.6 8-6 8-11.2C23.5 5.8 18.3.5 12 .5z"/></svg></a>
+  </div>
+  <div>© <span id="yr"></span> Mehmet Fatih İçin · İstanbul, Türkiye</div>
+  <div style="margin-top:6px;font-size:.78rem;opacity:.7">Yazılım &amp; Veritabanı Uzmanı · Mobil Uygulama Geliştirici</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const obs = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
