@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["AD58B3766F.com.mfatihicin.liarloop"],
+        "components": [
+          {
+            "/": "/sahtekar-privacy/join.html",
+            "comment": "LiarLoop private room invitations"
+          }
+        ]
+      }
+    ]
+  }
+}
