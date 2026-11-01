@@ -1,6 +1,8 @@
 OWNERDOMAIN=mfatihicin.github.io
 # Unity LevelPlay / ironSource Ads (publisher 683101)
 ironsrc.com, 683101, DIRECT
+# Liftoff Monetize (Vungle)
+vungle.com, 6ae794a7008cfe5bdcefdd48, DIRECT, c107d686becd2d77
 # ironSource authorized resellers (docs.unity.com/en-us/grow/programmatic/ironsource-exchange/app-ads-txt, 12 Oct 2026)
 media.net, 8CUH2L333, RESELLER
 sharethrough.com, 3817, RESELLER, d53b998a7bd4ecd2
