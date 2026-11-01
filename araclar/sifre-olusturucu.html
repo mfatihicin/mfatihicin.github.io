@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Güçlü Şifre Oluşturucu ve Şifre Sızıntı Kontrolü</title>
+<meta name="description" content="Rastgele, güçlü şifre oluştur ve mevcut şifrenin veri sızıntılarında yer alıp almadığını güvenle kontrol et. Şifre cihazından çıkmaz. Ücretsiz.">
+<meta name="keywords" content="şifre oluşturucu, güçlü şifre oluştur, rastgele şifre, şifre üretici, şifrem çalındı mı, şifre sızıntı kontrolü, şifre güvenlik testi">
+<meta name="author" content="Mehmet Fatih İçin">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://mfatihicin.github.io/araclar/sifre-olusturucu.html">
+<link rel="alternate" hreflang="tr" href="https://mfatihicin.github.io/araclar/sifre-olusturucu.html">
+<meta name="theme-color" content="#0b1020">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mehmet Fatih İçin">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Güçlü Şifre Oluşturucu ve Şifre Sızıntı Kontrolü">
+<meta property="og:description" content="Rastgele, güçlü şifre oluştur ve mevcut şifrenin veri sızıntılarında yer alıp almadığını güvenle kontrol et. Şifre cihazından çıkmaz. Ücretsiz.">
+<meta property="og:url" content="https://mfatihicin.github.io/araclar/sifre-olusturucu.html">
+<meta property="og:image" content="https://mfatihicin.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Güçlü Şifre Oluşturucu ve Şifre Sızıntı Kontrolü">
+<meta name="twitter:description" content="Rastgele, güçlü şifre oluştur ve mevcut şifrenin veri sızıntılarında yer alıp almadığını güvenle kontrol et. Şifre cihazından çıkmaz. Ücretsiz.">
+<meta name="twitter:image" content="https://mfatihicin.github.io/assets/og.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/assets/style.css">
+<!-- Google Search Console doğrulama: aşağıdaki satırı Search Console'un verdiği kodla aç -->
+<meta name="google-site-verification" content="J-4BMNQ-aoJ_CTDvmhIF6c-XFz1i_h6v_tL80a5kwK4">
+<!-- Bing Webmaster doğrulama -->
+<!-- <meta name="msvalidate.01" content="BURAYA_KOD"> -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://mfatihicin.github.io/#website", "url": "https://mfatihicin.github.io/", "name": "Mehmet Fatih İçin", "inLanguage": "tr-TR", "publisher": {"@id": "https://mfatihicin.github.io/#person"}}, {"@type": "Person", "@id": "https://mfatihicin.github.io/#person", "name": "Mehmet Fatih İçin", "url": "https://mfatihicin.github.io/", "jobTitle": "Yazılım ve Veritabanı Uzmanı", "email": "mailto:mfatihicin@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "İstanbul", "addressCountry": "TR"}, "worksFor": {"@type": "GovernmentOrganization", "name": "T.C. Cumhurbaşkanlığı Millî Saraylar İdaresi Başkanlığı", "url": "https://www.millisaraylar.gov.tr/"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Anadolu Üniversitesi"}, {"@type": "CollegeOrUniversity", "name": "Ordu Üniversitesi"}], "knowsAbout": [".NET Core", "C#", "ASP.NET Core", "Microservices", "REST API", "SQL Server", "Oracle", "React Native", "RFID entegrasyonu", "e-Devlet entegrasyonu", "Mobil uygulama geliştirme"], "sameAs": ["https://www.linkedin.com/in/mfatihicin", "https://github.com/mfatihicin", "https://apps.apple.com/tr/developer/mehmet-fatih-icin/id6785829154", "https://play.google.com/store/apps/developer?id=mfatihicin"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://mfatihicin.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Online Araçlar", "item": "https://mfatihicin.github.io/araclar/"}, {"@type": "ListItem", "position": 3, "name": "Güçlü Şifre Oluşturucu", "item": "https://mfatihicin.github.io/araclar/sifre-olusturucu.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Bu sitede ürettiğim şifre kaydediliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Şifre tarayıcının kriptografik rastgele sayı üreteciyle (crypto.getRandomValues) cihazında üretilir ve hiçbir sunucuya gönderilmez."}}, {"@type": "Question", "name": "Şifrem sızdırılmışsa ne yapmalıyım?", "acceptedAnswer": {"@type": "Answer", "text": "O şifreyi kullandığın tüm hesaplarda hemen değiştir, mümkün olan her yerde iki adımlı doğrulamayı (2FA) aç ve her hesap için farklı şifre kullan."}}]}, {"@type": "WebApplication", "name": "Güçlü Şifre Oluşturucu", "url": "https://mfatihicin.github.io/araclar/sifre-olusturucu.html", "description": "Rastgele, güçlü şifre oluştur ve mevcut şifrenin veri sızıntılarında yer alıp almadığını güvenle kontrol et. Şifre cihazından çıkmaz. Ücretsiz.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Tüm tarayıcılar", "browserRequirements": "JavaScript gerekir", "inLanguage": "tr-TR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"}, "author": {"@id": "https://mfatihicin.github.io/#person"}}]}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top"><div class="wrap">
+<a class="brand" href="/"><span class="logo">Mİ</span><span>Mehmet Fatih İçin</span></a>
+<button class="iconbtn menu-btn" id="menuBtn" aria-label="Menü" aria-expanded="false">☰</button>
+<nav class="nav" id="nav"><a href="/">Ana Sayfa</a><a href="/uygulamalar/">Uygulamalar</a><a href="/araclar/" aria-current=page>Online Araçlar</a><a href="/#projeler">Projeler</a><a href="/#iletisim">İletişim</a><button class="iconbtn" id="themeBtn" aria-label="Tema değiştir">◐</button></nav>
+</div></header>
+<main id="main">
+<section style="padding-top:40px"><div class="wrap"><nav class="crumbs" aria-label="breadcrumb"><a href="/">Ana Sayfa</a> › <a href="/araclar/">Online Araçlar</a> › Güçlü Şifre Oluşturucu</nav>
+<h1>🔑 Güçlü Şifre Oluşturucu</h1><p class="lead">Uzunluğu ve karakter türlerini seç, tek tıkla tahmin edilmesi imkânsız bir şifre üret. Altta mevcut şifrenin bilinen veri sızıntılarında geçip geçmediğini de kontrol edebilirsin.</p>
+<div class="tool"><div class="big" id="pw" style="font-size:26px">…</div><div class="meter"><i id="sm"></i></div><p class="muted" id="sl"></p>
+<div class="row"><button class="btn primary" id="gen">Yeni Şifre</button><button class="btn" id="cp">Kopyala</button></div>
+<label for="len">Uzunluk: <span id="lv">16</span></label><input type="range" id="len" min="8" max="64" value="16" style="width:100%">
+<div class="row" style="margin-top:10px"><label><input type="checkbox" id="u" checked> Büyük harf</label><label><input type="checkbox" id="l" checked> Küçük harf</label><label><input type="checkbox" id="n" checked> Rakam</label><label><input type="checkbox" id="s" checked> Sembol</label><label><input type="checkbox" id="x" checked> Benzer karakterleri çıkar (0/O, 1/l)</label></div></div>
+<div class="tool"><h3>Şifrem sızdırılmış mı?</h3><p class="muted">Şifren gönderilmez: tarayıcın şifrenin SHA-1 özetinin yalnızca ilk 5 karakterini Have I Been Pwned servisine sorar (k-anonimlik).</p>
+<form id="hf" class="inline"><input type="text" id="hp" placeholder="Kontrol edilecek şifre" autocomplete="off" aria-label="Şifre"><button class="btn primary">Kontrol Et</button></form><div class="result" id="hout"></div></div>
+<div class="ad-slot"></div>
+<aside class="promo"><div class="app-ico" style="background:linear-gradient(135deg,#3d7bff,#00c2ff)">🔐</div>
+<div><p><b>KeepHold</b> — Fotoğraf Kasası & Şifre Kilidi</p><p class="muted">Galerinde görünmesini istemediğin her şeyi şifreli bir kasaya taşı. Fotoğraflar, belgeler, notlar ve şifreler — hepsi cihazında, AES-256 ile.</p><div class="stores"><a href="https://apps.apple.com/tr/app/keephold-photo-vault-locker/id6825091563" data-store="keephold-ios" rel="noopener" target="_blank">App Store</a></div></div></aside>
+<div class="article"><h2>Güçlü şifre nasıl olmalı?</h2>
+<p>En az 12, tercihen 16 karakter; büyük-küçük harf, rakam ve sembol karışık; kişisel bilgi (doğum tarihi, isim, takım) içermeyen ve <b>her sitede farklı</b> bir şifre. Şifre uzunluğu karmaşıklıktan daha önemlidir: 16 karakterlik rastgele bir şifre, bugünkü donanımla kaba kuvvetle kırılamaz.</p>
+<h2>Bu kadar şifreyi nasıl hatırlarım?</h2>
+<p>Hatırlamaya çalışma; bir şifre yöneticisi kullan. Tek ana şifreyi hatırlarsın, gerisini yönetici saklar. iPhone kullanıyorsan <a href="/uygulamalar/keephold.html">KeepHold</a> şifrelerini ve 2FA kodlarını cihazında şifreli olarak tutar.</p>
+<h2>Şifre sızıntı kontrolü güvenli mi?</h2>
+<p>Evet. Şifrenin kendisi hiçbir yere gönderilmez. Tarayıcı şifrenin SHA-1 özetini hesaplar ve yalnızca ilk 5 karakterini sorar; servis bu önekle başlayan yüzlerce özeti döndürür, eşleşme kontrolü senin cihazında yapılır.</p>
+<h2>Sık sorulan sorular</h2><details><summary>Bu sitede ürettiğim şifre kaydediliyor mu?</summary><p>Hayır. Şifre tarayıcının kriptografik rastgele sayı üreteciyle (crypto.getRandomValues) cihazında üretilir ve hiçbir sunucuya gönderilmez.</p></details><details><summary>Şifrem sızdırılmışsa ne yapmalıyım?</summary><p>O şifreyi kullandığın tüm hesaplarda hemen değiştir, mümkün olan her yerde iki adımlı doğrulamayı (2FA) aç ve her hesap için farklı şifre kullan.</p></details></div>
+<h2 style="margin-top:48px">Diğer araçlar</h2><div class="grid g3"><a class="card" href="/araclar/site-guvenli-mi.html"><div style="font-size:24px">🛡️</div><h3>Site Güvenli mi? Sorgulama</h3><p class="muted">Bir sitenin SSL sertifikası, HTTPS, alan adı yaşı ve e-posta güvenliğini tek tıkla kontrol et.</p></a><a class="card" href="/araclar/dns-sorgulama.html"><div style="font-size:24px">🌐</div><h3>DNS Sorgulama</h3><p class="muted">A, AAAA, MX, TXT, NS, CNAME, CAA kayıtlarını anında sorgula.</p></a><a class="card" href="/araclar/ip-adresim.html"><div style="font-size:24px">📍</div><h3>IP Adresim Nedir?</h3><p class="muted">Genel IP adresini, internet sağlayıcını ve konumunu öğren.</p></a></div>
+</div></section>
+<script>window.addEventListener('DOMContentLoaded',()=>{
+const $=id=>document.getElementById(id);
+function gen(){let U='ABCDEFGHIJKLMNOPQRSTUVWXYZ',L='abcdefghijklmnopqrstuvwxyz',N='0123456789',S='!@#$%^&*()-_=+[]{};:,.?/';if($('x').checked){U=U.replace(/[IO]/g,'');L=L.replace(/[l]/g,'');N=N.replace(/[01]/g,'')}
+ const sets=[$('u').checked&&U,$('l').checked&&L,$('n').checked&&N,$('s').checked&&S].filter(Boolean);if(!sets.length){toast('En az bir karakter türü seç');return}
+ const len=+$('len').value,all=sets.join('');const r=new Uint32Array(len);crypto.getRandomValues(r);let p=[...r].map(v=>all[v%all.length]);
+ sets.forEach((s,i)=>{const k=new Uint32Array(1);crypto.getRandomValues(k);p[i]=s[k[0]%s.length]});for(let i=p.length-1;i>0;i--){const k=new Uint32Array(1);crypto.getRandomValues(k);const j=k[0]%(i+1);[p[i],p[j]]=[p[j],p[i]]}
+ const pw=p.join('');$('pw').textContent=pw;const bits=Math.round(len*Math.log2(all.length));const pct=Math.min(100,bits/128*100);$('sm').style.width=pct+'%';
+ $('sl').textContent=`${bits} bit entropi — ${bits>=100?'Çok güçlü':bits>=70?'Güçlü':bits>=50?'Orta':'Zayıf'}`}
+['u','l','n','s','x'].forEach(i=>$(i).onchange=gen);$('len').oninput=()=>{$('lv').textContent=$('len').value;gen()};$('gen').onclick=gen;$('cp').onclick=()=>copyText($('pw').textContent);gen();
+async function sha1(s){const b=await crypto.subtle.digest('SHA-1',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('').toUpperCase()}
+$('hf').addEventListener('submit',async e=>{e.preventDefault();const v=$('hp').value;if(!v)return;$('hout').innerHTML='<p class="muted">Kontrol ediliyor…</p>';try{const h=await sha1(v);const r=await fetch('https://api.pwnedpasswords.com/range/'+h.slice(0,5),{headers:{'Add-Padding':'true'}});const t=await r.text();const line=t.split('\n').find(l=>l.startsWith(h.slice(5)));const c=line?parseInt(line.split(':')[1]):0;
+ $('hout').innerHTML=c>0?`<div class="check"><span class="dot bad">!</span><div><b>Bu şifre ${c.toLocaleString('tr-TR')} kez veri sızıntısında görülmüş.</b><div class="muted">Bu şifreyi kullandığın her yerde hemen değiştir.</div></div></div>`:`<div class="check"><span class="dot ok">✓</span><div><b>Bilinen sızıntılarda bulunamadı.</b><div class="muted">Yine de her sitede farklı şifre kullan.</div></div></div>`}catch(e){$('hout').innerHTML='<p>Servise ulaşılamadı.</p>'}});
+});</script>
+</main>
+<footer><div class="wrap">
+<div class="grid g4">
+<div><h4>Mehmet Fatih İçin</h4><p>Yazılım & Veritabanı Uzmanı · .NET · SQL Server · Oracle · React Native mobil uygulama geliştirici. İstanbul.</p>
+<p><a href="mailto:mfatihicin@gmail.com">mfatihicin@gmail.com</a></p>
+<p class="row"><a href="https://www.linkedin.com/in/mfatihicin" rel="me noopener">LinkedIn</a> · <a href="https://github.com/mfatihicin" rel="me noopener">GitHub</a></p></div>
+<div><h4>Uygulamalar</h4><ul><li><a href="/uygulamalar/streakflow.html">StreakFlow — Alışkanlık & Seri Takibi</a></li><li><a href="/uygulamalar/parakit.html">Parakit — Harcama & Borç Takibi</a></li><li><a href="/uygulamalar/liarloop.html">LiarLoop — Sahtekar Kim? Kelime Oyunu</a></li><li><a href="/uygulamalar/keephold.html">KeepHold — Fotoğraf Kasası & Şifre Kilidi</a></li><li><a href="/uygulamalar/masaplay.html">MasaPlay — Online Tavla & Masa Oyunları</a></li></ul></div>
+<div><h4>Online Araçlar</h4><ul><li><a href="/araclar/site-guvenli-mi.html">Site Güvenli mi? Sorgulama</a></li><li><a href="/araclar/dns-sorgulama.html">DNS Sorgulama</a></li><li><a href="/araclar/ip-adresim.html">IP Adresim Nedir?</a></li><li><a href="/araclar/internet-hiz-testi.html">İnternet Hız Testi</a></li><li><a href="/araclar/sifre-olusturucu.html">Güçlü Şifre Oluşturucu</a></li><li><a href="/araclar/qr-kod-olusturucu.html">QR Kod Oluşturucu</a></li><li><a href="/araclar/iban-dogrulama.html">IBAN Doğrulama</a></li><li><a href="/araclar/tc-kimlik-dogrulama.html">TC Kimlik No Doğrulama</a></li><li><a href="/araclar/kdv-hesaplama.html">KDV Hesaplama</a></li><li><a href="/araclar/kredi-hesaplama.html">Kredi Hesaplama</a></li><li><a href="/araclar/internet-altyapi-sorgulama.html">İnternet Altyapı Sorgulama</a></li><li><a href="/araclar/json-bicimlendirici.html">JSON Biçimlendirici</a></li></ul></div>
+<div><h4>Site</h4><ul><li><a href="/#hakkimda">Hakkımda</a></li><li><a href="/#projeler">Kurumsal Projeler</a></li><li><a href="/#iletisim">İletişim</a></li><li><a href="/gizlilik.html">Gizlilik Politikası</a></li><li><a href="/sitemap.xml">Site Haritası</a></li></ul></div>
+</div>
+<div class="foot-bottom"><span>© <span id="year">2026</span> Mehmet Fatih İçin. Tüm hakları saklıdır.</span><span>Araçlar tarayıcında çalışır; girdiğin veriler sunucumuza gönderilmez.</span></div>
+</div></footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>

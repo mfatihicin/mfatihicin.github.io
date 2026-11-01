@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TC Kimlik No Doğrulama Algoritması — Online Kontrol</title>
+<meta name="description" content="TC kimlik numarasının resmi algoritmaya (10. ve 11. hane kontrolü) uygun olup olmadığını kontrol et. Form doğrulaması yapan yazılımcılar için C#, JavaScript ve SQL örnekleri.">
+<meta name="keywords" content="tc kimlik no doğrulama, tc kimlik algoritması, tc kimlik kontrol, tckn doğrulama c#, tc kimlik javascript">
+<meta name="author" content="Mehmet Fatih İçin">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://mfatihicin.github.io/araclar/tc-kimlik-dogrulama.html">
+<link rel="alternate" hreflang="tr" href="https://mfatihicin.github.io/araclar/tc-kimlik-dogrulama.html">
+<meta name="theme-color" content="#0b1020">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mehmet Fatih İçin">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="TC Kimlik No Doğrulama Algoritması — Online Kontrol">
+<meta property="og:description" content="TC kimlik numarasının resmi algoritmaya (10. ve 11. hane kontrolü) uygun olup olmadığını kontrol et. Form doğrulaması yapan yazılımcılar için C#, JavaScript ve SQL örnekleri.">
+<meta property="og:url" content="https://mfatihicin.github.io/araclar/tc-kimlik-dogrulama.html">
+<meta property="og:image" content="https://mfatihicin.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TC Kimlik No Doğrulama Algoritması — Online Kontrol">
+<meta name="twitter:description" content="TC kimlik numarasının resmi algoritmaya (10. ve 11. hane kontrolü) uygun olup olmadığını kontrol et. Form doğrulaması yapan yazılımcılar için C#, JavaScript ve SQL örnekleri.">
+<meta name="twitter:image" content="https://mfatihicin.github.io/assets/og.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/assets/style.css">
+<!-- Google Search Console doğrulama: aşağıdaki satırı Search Console'un verdiği kodla aç -->
+<meta name="google-site-verification" content="J-4BMNQ-aoJ_CTDvmhIF6c-XFz1i_h6v_tL80a5kwK4">
+<!-- Bing Webmaster doğrulama -->
+<!-- <meta name="msvalidate.01" content="BURAYA_KOD"> -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://mfatihicin.github.io/#website", "url": "https://mfatihicin.github.io/", "name": "Mehmet Fatih İçin", "inLanguage": "tr-TR", "publisher": {"@id": "https://mfatihicin.github.io/#person"}}, {"@type": "Person", "@id": "https://mfatihicin.github.io/#person", "name": "Mehmet Fatih İçin", "url": "https://mfatihicin.github.io/", "jobTitle": "Yazılım ve Veritabanı Uzmanı", "email": "mailto:mfatihicin@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "İstanbul", "addressCountry": "TR"}, "worksFor": {"@type": "GovernmentOrganization", "name": "T.C. Cumhurbaşkanlığı Millî Saraylar İdaresi Başkanlığı", "url": "https://www.millisaraylar.gov.tr/"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Anadolu Üniversitesi"}, {"@type": "CollegeOrUniversity", "name": "Ordu Üniversitesi"}], "knowsAbout": [".NET Core", "C#", "ASP.NET Core", "Microservices", "REST API", "SQL Server", "Oracle", "React Native", "RFID entegrasyonu", "e-Devlet entegrasyonu", "Mobil uygulama geliştirme"], "sameAs": ["https://www.linkedin.com/in/mfatihicin", "https://github.com/mfatihicin", "https://apps.apple.com/tr/developer/mehmet-fatih-icin/id6785829154", "https://play.google.com/store/apps/developer?id=mfatihicin"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://mfatihicin.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Online Araçlar", "item": "https://mfatihicin.github.io/araclar/"}, {"@type": "ListItem", "position": 3, "name": "TC Kimlik No Doğrulama", "item": "https://mfatihicin.github.io/araclar/tc-kimlik-dogrulama.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Bu araç kişinin adını gösterir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Hiçbir kişi bilgisi sorgulanmaz veya gösterilmez; yalnızca numaranın matematiksel kontrol haneleri doğrulanır."}}, {"@type": "Question", "name": "Algoritmaya uygun numara gerçek midir?", "acceptedAnswer": {"@type": "Answer", "text": "Her zaman değil. Algoritma yazım hatalarını yakalar; numaranın gerçek bir kişiye ait olduğu yalnızca resmi servislerle doğrulanabilir."}}]}, {"@type": "WebApplication", "name": "TC Kimlik No Doğrulama", "url": "https://mfatihicin.github.io/araclar/tc-kimlik-dogrulama.html", "description": "TC kimlik numarasının resmi algoritmaya (10. ve 11. hane kontrolü) uygun olup olmadığını kontrol et. Form doğrulaması yapan yazılımcılar için C#, JavaScript ve SQL örnekleri.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Tüm tarayıcılar", "browserRequirements": "JavaScript gerekir", "inLanguage": "tr-TR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"}, "author": {"@id": "https://mfatihicin.github.io/#person"}}]}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top"><div class="wrap">
+<a class="brand" href="/"><span class="logo">Mİ</span><span>Mehmet Fatih İçin</span></a>
+<button class="iconbtn menu-btn" id="menuBtn" aria-label="Menü" aria-expanded="false">☰</button>
+<nav class="nav" id="nav"><a href="/">Ana Sayfa</a><a href="/uygulamalar/">Uygulamalar</a><a href="/araclar/" aria-current=page>Online Araçlar</a><a href="/#projeler">Projeler</a><a href="/#iletisim">İletişim</a><button class="iconbtn" id="themeBtn" aria-label="Tema değiştir">◐</button></nav>
+</div></header>
+<main id="main">
+<section style="padding-top:40px"><div class="wrap"><nav class="crumbs" aria-label="breadcrumb"><a href="/">Ana Sayfa</a> › <a href="/araclar/">Online Araçlar</a> › TC Kimlik No Doğrulama</nav>
+<h1>🪪 TC Kimlik No Doğrulama</h1><p class="lead">Bir TC kimlik numarasının matematiksel olarak geçerli olup olmadığını kontrol eder. Kişi bilgisi sorgulamaz; numaranın gerçek bir kişiye ait olduğunu göstermez. Form doğrulaması yazan geliştiriciler için kod örnekleri aşağıda.</p>
+<div class="tool"><form id="f" class="inline"><input type="text" id="v" inputmode="numeric" maxlength="11" placeholder="11 haneli numara" aria-label="TC kimlik no"><button class="btn primary">Kontrol Et</button></form><div class="result" id="out"></div></div>
+<div class="ad-slot"></div>
+<aside class="promo"><div class="app-ico" style="background:linear-gradient(135deg,#ff8a3d,#ff3d6e)">🔥</div>
+<div><p><b>StreakFlow</b> — Alışkanlık & Seri Takibi</p><p class="muted">Günlük rutinlerini serilere dönüştür: hatırlatıcılar, sayaç ve zamanlayıcı hedefleri, bırakma modu, XP ve rozetlerle motivasyonunu yüksek tut.</p><div class="stores"><a href="https://apps.apple.com/tr/app/streakflow-habit-streaks/id6785829152" data-store="streakflow-ios" rel="noopener" target="_blank">App Store</a><a href="https://play.google.com/store/apps/details?id=com.mfatihicin.streakflow" data-store="streakflow-android" rel="noopener" target="_blank">▶ Google Play</a></div></div></aside>
+<div class="article"><h2>TC kimlik numarası algoritması</h2>
+<ol><li>11 hanelidir, ilk hane 0 olamaz.</li><li>1, 3, 5, 7 ve 9. hanelerin toplamının 7 katından 2, 4, 6 ve 8. hanelerin toplamı çıkarılır; sonucun 10'a bölümünden kalan 10. haneyi verir.</li><li>İlk 10 hanenin toplamının 10'a bölümünden kalan 11. haneyi verir.</li></ol>
+<h2>C# ile TC kimlik doğrulama</h2>
+<pre class="card overflow" style="font-family:var(--mono);font-size:13px">public static bool IsValidTckn(string t)
+{
+    if (t is not { Length: 11 } || t[0] == '0' || !t.All(char.IsDigit)) return false;
+    var d = t.Select(c =&gt; c - '0').ToArray();
+    int odd = d[0] + d[2] + d[4] + d[6] + d[8], even = d[1] + d[3] + d[5] + d[7];
+    if (((odd * 7 - even) % 10 + 10) % 10 != d[9]) return false;
+    return d.Take(10).Sum() % 10 == d[10];
+}</pre>
+<h2>JavaScript ile TC kimlik doğrulama</h2>
+<pre class="card overflow" style="font-family:var(--mono);font-size:13px">function isValidTckn(t) {
+  if (!/^[1-9]\d{10}$/.test(t)) return false;
+  const d = [...t].map(Number);
+  const odd = d[0]+d[2]+d[4]+d[6]+d[8], even = d[1]+d[3]+d[5]+d[7];
+  if (((odd*7 - even) % 10 + 10) % 10 !== d[9]) return false;
+  return d.slice(0,10).reduce((a,b) =&gt; a+b) % 10 === d[10];
+}</pre>
+<p class="note">Algoritma kontrolü yalnızca yazım hatalarını yakalar. Kimlik doğrulaması gereken kamu ve finans sistemlerinde Nüfus ve Vatandaşlık İşleri'nin resmi servisleri (KPS / TCKimlikNoDogrula) kullanılmalıdır.</p>
+<h2>Sık sorulan sorular</h2><details><summary>Bu araç kişinin adını gösterir mi?</summary><p>Hayır. Hiçbir kişi bilgisi sorgulanmaz veya gösterilmez; yalnızca numaranın matematiksel kontrol haneleri doğrulanır.</p></details><details><summary>Algoritmaya uygun numara gerçek midir?</summary><p>Her zaman değil. Algoritma yazım hatalarını yakalar; numaranın gerçek bir kişiye ait olduğu yalnızca resmi servislerle doğrulanabilir.</p></details></div>
+<h2 style="margin-top:48px">Diğer araçlar</h2><div class="grid g3"><a class="card" href="/araclar/json-bicimlendirici.html"><div style="font-size:24px">🧩</div><h3>JSON Biçimlendirici</h3><p class="muted">JSON'u düzenle, doğrula, küçült; hataları satır numarasıyla gör.</p></a><a class="card" href="/araclar/site-guvenli-mi.html"><div style="font-size:24px">🛡️</div><h3>Site Güvenli mi? Sorgulama</h3><p class="muted">Bir sitenin SSL sertifikası, HTTPS, alan adı yaşı ve e-posta güvenliğini tek tıkla kontrol et.</p></a><a class="card" href="/araclar/dns-sorgulama.html"><div style="font-size:24px">🌐</div><h3>DNS Sorgulama</h3><p class="muted">A, AAAA, MX, TXT, NS, CNAME, CAA kayıtlarını anında sorgula.</p></a></div>
+</div></section>
+<script>window.addEventListener('DOMContentLoaded',()=>{
+function valid(t){if(!/^[1-9]\d{10}$/.test(t))return false;const d=[...t].map(Number);const o=d[0]+d[2]+d[4]+d[6]+d[8],e=d[1]+d[3]+d[5]+d[7];if(((o*7-e)%10+10)%10!==d[9])return false;return d.slice(0,10).reduce((a,b)=>a+b)%10===d[10]}
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();const v=document.getElementById('v').value.trim();const ok=valid(v);document.getElementById('out').innerHTML=`<div class="check"><span class="dot ${ok?'ok':'bad'}">${ok?'✓':'!'}</span><div><b>${ok?'Algoritmaya uygun':'Geçersiz numara'}</b><div class="muted">${ok?'Numara kontrol hanelerinden geçti. Gerçek bir kişiye ait olup olmadığı yalnızca NVİ/KPS ile doğrulanabilir.':'11 hane, ilk hane 0 olmamalı ve 10.-11. haneler algoritmaya uymalı.'}</div></div></div>`});
+});</script>
+</main>
+<footer><div class="wrap">
+<div class="grid g4">
+<div><h4>Mehmet Fatih İçin</h4><p>Yazılım & Veritabanı Uzmanı · .NET · SQL Server · Oracle · React Native mobil uygulama geliştirici. İstanbul.</p>
+<p><a href="mailto:mfatihicin@gmail.com">mfatihicin@gmail.com</a></p>
+<p class="row"><a href="https://www.linkedin.com/in/mfatihicin" rel="me noopener">LinkedIn</a> · <a href="https://github.com/mfatihicin" rel="me noopener">GitHub</a></p></div>
+<div><h4>Uygulamalar</h4><ul><li><a href="/uygulamalar/streakflow.html">StreakFlow — Alışkanlık & Seri Takibi</a></li><li><a href="/uygulamalar/parakit.html">Parakit — Harcama & Borç Takibi</a></li><li><a href="/uygulamalar/liarloop.html">LiarLoop — Sahtekar Kim? Kelime Oyunu</a></li><li><a href="/uygulamalar/keephold.html">KeepHold — Fotoğraf Kasası & Şifre Kilidi</a></li><li><a href="/uygulamalar/masaplay.html">MasaPlay — Online Tavla & Masa Oyunları</a></li></ul></div>
+<div><h4>Online Araçlar</h4><ul><li><a href="/araclar/site-guvenli-mi.html">Site Güvenli mi? Sorgulama</a></li><li><a href="/araclar/dns-sorgulama.html">DNS Sorgulama</a></li><li><a href="/araclar/ip-adresim.html">IP Adresim Nedir?</a></li><li><a href="/araclar/internet-hiz-testi.html">İnternet Hız Testi</a></li><li><a href="/araclar/sifre-olusturucu.html">Güçlü Şifre Oluşturucu</a></li><li><a href="/araclar/qr-kod-olusturucu.html">QR Kod Oluşturucu</a></li><li><a href="/araclar/iban-dogrulama.html">IBAN Doğrulama</a></li><li><a href="/araclar/tc-kimlik-dogrulama.html">TC Kimlik No Doğrulama</a></li><li><a href="/araclar/kdv-hesaplama.html">KDV Hesaplama</a></li><li><a href="/araclar/kredi-hesaplama.html">Kredi Hesaplama</a></li><li><a href="/araclar/internet-altyapi-sorgulama.html">İnternet Altyapı Sorgulama</a></li><li><a href="/araclar/json-bicimlendirici.html">JSON Biçimlendirici</a></li></ul></div>
+<div><h4>Site</h4><ul><li><a href="/#hakkimda">Hakkımda</a></li><li><a href="/#projeler">Kurumsal Projeler</a></li><li><a href="/#iletisim">İletişim</a></li><li><a href="/gizlilik.html">Gizlilik Politikası</a></li><li><a href="/sitemap.xml">Site Haritası</a></li></ul></div>
+</div>
+<div class="foot-bottom"><span>© <span id="year">2026</span> Mehmet Fatih İçin. Tüm hakları saklıdır.</span><span>Araçlar tarayıcında çalışır; girdiğin veriler sunucumuza gönderilmez.</span></div>
+</div></footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IBAN Doğrulama ve Banka Sorgulama — TR IBAN Kontrol</title>
+<meta name="description" content="IBAN numarasının geçerli olup olmadığını uluslararası kontrol algoritmasıyla doğrula. Türk IBAN&#x27;larında banka adını göster, para göndermeden önce hatayı yakala.">
+<meta name="keywords" content="iban doğrulama, iban sorgulama, iban kontrol, iban hangi banka, iban geçerli mi, tr iban">
+<meta name="author" content="Mehmet Fatih İçin">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://mfatihicin.github.io/araclar/iban-dogrulama.html">
+<link rel="alternate" hreflang="tr" href="https://mfatihicin.github.io/araclar/iban-dogrulama.html">
+<meta name="theme-color" content="#0b1020">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mehmet Fatih İçin">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="IBAN Doğrulama ve Banka Sorgulama — TR IBAN Kontrol">
+<meta property="og:description" content="IBAN numarasının geçerli olup olmadığını uluslararası kontrol algoritmasıyla doğrula. Türk IBAN&#x27;larında banka adını göster, para göndermeden önce hatayı yakala.">
+<meta property="og:url" content="https://mfatihicin.github.io/araclar/iban-dogrulama.html">
+<meta property="og:image" content="https://mfatihicin.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IBAN Doğrulama ve Banka Sorgulama — TR IBAN Kontrol">
+<meta name="twitter:description" content="IBAN numarasının geçerli olup olmadığını uluslararası kontrol algoritmasıyla doğrula. Türk IBAN&#x27;larında banka adını göster, para göndermeden önce hatayı yakala.">
+<meta name="twitter:image" content="https://mfatihicin.github.io/assets/og.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/assets/style.css">
+<!-- Google Search Console doğrulama: aşağıdaki satırı Search Console'un verdiği kodla aç -->
+<meta name="google-site-verification" content="J-4BMNQ-aoJ_CTDvmhIF6c-XFz1i_h6v_tL80a5kwK4">
+<!-- Bing Webmaster doğrulama -->
+<!-- <meta name="msvalidate.01" content="BURAYA_KOD"> -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://mfatihicin.github.io/#website", "url": "https://mfatihicin.github.io/", "name": "Mehmet Fatih İçin", "inLanguage": "tr-TR", "publisher": {"@id": "https://mfatihicin.github.io/#person"}}, {"@type": "Person", "@id": "https://mfatihicin.github.io/#person", "name": "Mehmet Fatih İçin", "url": "https://mfatihicin.github.io/", "jobTitle": "Yazılım ve Veritabanı Uzmanı", "email": "mailto:mfatihicin@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "İstanbul", "addressCountry": "TR"}, "worksFor": {"@type": "GovernmentOrganization", "name": "T.C. Cumhurbaşkanlığı Millî Saraylar İdaresi Başkanlığı", "url": "https://www.millisaraylar.gov.tr/"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Anadolu Üniversitesi"}, {"@type": "CollegeOrUniversity", "name": "Ordu Üniversitesi"}], "knowsAbout": [".NET Core", "C#", "ASP.NET Core", "Microservices", "REST API", "SQL Server", "Oracle", "React Native", "RFID entegrasyonu", "e-Devlet entegrasyonu", "Mobil uygulama geliştirme"], "sameAs": ["https://www.linkedin.com/in/mfatihicin", "https://github.com/mfatihicin", "https://apps.apple.com/tr/developer/mehmet-fatih-icin/id6785829154", "https://play.google.com/store/apps/developer?id=mfatihicin"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://mfatihicin.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Online Araçlar", "item": "https://mfatihicin.github.io/araclar/"}, {"@type": "ListItem", "position": 3, "name": "IBAN Doğrulama", "item": "https://mfatihicin.github.io/araclar/iban-dogrulama.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "IBAN'dan kişinin adı öğrenilebilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Bu araç yalnızca IBAN'ın biçim ve kontrol hanesini doğrular. Hesap sahibinin adını yalnızca banka, transfer ekranında gösterir."}}, {"@type": "Question", "name": "IBAN hangi bankaya ait nasıl anlaşılır?", "acceptedAnswer": {"@type": "Answer", "text": "TR'den sonraki 2 haneden sonra gelen 5 hane banka kodudur. Araç bu koda göre banka adını gösterir."}}]}, {"@type": "WebApplication", "name": "IBAN Doğrulama", "url": "https://mfatihicin.github.io/araclar/iban-dogrulama.html", "description": "IBAN numarasının geçerli olup olmadığını uluslararası kontrol algoritmasıyla doğrula. Türk IBAN'larında banka adını göster, para göndermeden önce hatayı yakala.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Tüm tarayıcılar", "browserRequirements": "JavaScript gerekir", "inLanguage": "tr-TR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"}, "author": {"@id": "https://mfatihicin.github.io/#person"}}]}</script>
+
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+<header class="top"><div class="wrap">
+<a class="brand" href="/"><span class="logo">Mİ</span><span>Mehmet Fatih İçin</span></a>
+<button class="iconbtn menu-btn" id="menuBtn" aria-label="Menü" aria-expanded="false">☰</button>
+<nav class="nav" id="nav"><a href="/">Ana Sayfa</a><a href="/uygulamalar/">Uygulamalar</a><a href="/araclar/" aria-current=page>Online Araçlar</a><a href="/#projeler">Projeler</a><a href="/#iletisim">İletişim</a><button class="iconbtn" id="themeBtn" aria-label="Tema değiştir">◐</button></nav>
+</div></header>
+<main id="main">
+<section style="padding-top:40px"><div class="wrap"><nav class="crumbs" aria-label="breadcrumb"><a href="/">Ana Sayfa</a> › <a href="/araclar/">Online Araçlar</a> › IBAN Doğrulama</nav>
+<h1>🏦 IBAN Doğrulama</h1><p class="lead">Para göndermeden önce IBAN'ı kontrol et. Yanlış yazılmış bir hane bile kontrol algoritmasıyla yakalanır. Türk IBAN'larında hangi bankaya ait olduğu da gösterilir.</p>
+<div class="tool"><form id="f" class="inline"><input type="text" id="v" placeholder="TR00 0000 0000 0000 0000 0000 00" autocomplete="off" aria-label="IBAN"><button class="btn primary">Doğrula</button></form><div class="result" id="out"></div></div>
+<div class="ad-slot"></div>
+<aside class="promo"><div class="app-ico" style="background:linear-gradient(135deg,#2fd17a,#138a7e)">💸</div>
+<div><p><b>Parakit</b> — Harcama & Borç Takibi</p><p class="muted">Gelirini, giderini, kime ne kadar borç verdiğini ve aldığını tek yerde tut. Çek-senet vadeleri ve altın birikimin de cebinde.</p><div class="stores"><a href="https://apps.apple.com/tr/app/parakit-money-debt-tracker/id6794076825" data-store="parakit-ios" rel="noopener" target="_blank">App Store</a><a href="https://play.google.com/store/apps/details?id=com.mfatihicin.parakit" data-store="parakit-android" rel="noopener" target="_blank">▶ Google Play</a></div></div></aside>
+<div class="article"><h2>IBAN nasıl doğrulanır?</h2>
+<p>IBAN'ın 3. ve 4. haneleri bir kontrol numarasıdır. Uluslararası ISO 13616 standardındaki MOD-97 algoritması tüm haneleri bu numarayla karşılaştırır; tek bir hane yanlış yazıldığında ya da iki hanenin yeri değiştiğinde IBAN geçersiz çıkar.</p>
+<h2>Türk IBAN yapısı</h2>
+<p>Türkiye IBAN'ı 26 karakterdir: <code>TR</code> + 2 hane kontrol + 5 hane banka kodu + 1 hane rezerv (0) + 16 hane hesap numarası. Banka kodundan IBAN'ın hangi bankaya ait olduğu anlaşılır.</p>
+<h2>Sık sorulan sorular</h2><details><summary>IBAN'dan kişinin adı öğrenilebilir mi?</summary><p>Hayır. Bu araç yalnızca IBAN'ın biçim ve kontrol hanesini doğrular. Hesap sahibinin adını yalnızca banka, transfer ekranında gösterir.</p></details><details><summary>IBAN hangi bankaya ait nasıl anlaşılır?</summary><p>TR'den sonraki 2 haneden sonra gelen 5 hane banka kodudur. Araç bu koda göre banka adını gösterir.</p></details></div>
+<h2 style="margin-top:48px">Diğer araçlar</h2><div class="grid g3"><a class="card" href="/araclar/kdv-hesaplama.html"><div style="font-size:24px">🧾</div><h3>KDV Hesaplama</h3><p class="muted">KDV dahil / hariç tutarı ve KDV miktarını hesapla.</p></a><a class="card" href="/araclar/kredi-hesaplama.html"><div style="font-size:24px">📊</div><h3>Kredi Hesaplama</h3><p class="muted">Aylık taksit, toplam geri ödeme ve ödeme planını çıkar.</p></a><a class="card" href="/araclar/site-guvenli-mi.html"><div style="font-size:24px">🛡️</div><h3>Site Güvenli mi? Sorgulama</h3><p class="muted">Bir sitenin SSL sertifikası, HTTPS, alan adı yaşı ve e-posta güvenliğini tek tıkla kontrol et.</p></a></div>
+</div></section>
+<script>window.addEventListener('DOMContentLoaded',()=>{
+const BANKS={'00001':'T.C. Merkez Bankası','00010':'T.C. Ziraat Bankası','00012':'Halkbank','00015':'VakıfBank','00032':'TEB','00046':'Akbank','00059':'Şekerbank','00062':'Garanti BBVA','00064':'Türkiye İş Bankası','00067':'Yapı Kredi','00091':'Arap Türk Bankası','00092':'Citibank','00096':'Turkish Bank','00099':'ING','00103':'Fibabanka','00108':'Turkland Bank','00109':'ICBC Turkey','00111':'QNB Türkiye','00115':'Deutsche Bank','00123':'HSBC','00124':'Alternatifbank','00125':'Burgan Bank','00132':'Odea Bank','00134':'DenizBank','00135':'Anadolubank','00137':'Rabobank','00142':'Bank Pozitif','00143':'Aktif Yatırım Bankası','00146':'Odea Bank','00203':'Albaraka Türk','00205':'Kuveyt Türk','00206':'Türkiye Finans','00209':'Ziraat Katılım','00210':'Vakıf Katılım','00211':'Türkiye Emlak Katılım','00213':'Hayat Finans','00215':'Dünya Katılım','00829':'Papara (Elektronik Para)','00806':'Ininal (Elektronik Para)'};
+const LEN={TR:26,DE:22,GB:22,FR:27,NL:18,IT:27,ES:24,AT:20,BE:16,CH:21};
+function check(s){s=s.replace(/\s+/g,'').toUpperCase();if(!/^[A-Z]{2}\d{2}[A-Z0-9]+$/.test(s))return{ok:false,msg:'Geçersiz biçim. IBAN iki harfli ülke kodu ve iki haneli kontrol numarasıyla başlar.'};
+ const c=s.slice(0,2);if(LEN[c]&&s.length!==LEN[c])return{ok:false,msg:`${c} IBAN'ı ${LEN[c]} karakter olmalı, girilen ${s.length} karakter.`};
+ const r=(s.slice(4)+s.slice(0,4)).replace(/[A-Z]/g,ch=>ch.charCodeAt(0)-55);let m=0;for(const d of r)m=(m*10+ +d)%97;return m===1?{ok:true,s}:{ok:false,msg:'Kontrol numarası tutmuyor — IBAN yanlış yazılmış.'}}
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();const r=check(document.getElementById('v').value);const o=document.getElementById('out');
+ if(!r.ok){o.innerHTML=`<div class="check"><span class="dot bad">!</span><div><b>Geçersiz IBAN</b><div class="muted">${r.msg}</div></div></div>`;return}
+ const s=r.s,f=s.replace(/(.{4})/g,'$1 ').trim();let extra='';if(s.startsWith('TR')){const b=s.slice(4,9);extra=`<dt>Banka kodu</dt><dd>${b}</dd><dt>Banka</dt><dd>${BANKS[b]||'Listede yok (kodu bankanla doğrula)'}</dd><dt>Hesap no</dt><dd>${s.slice(10)}</dd>`}
+ o.innerHTML=`<div class="check"><span class="dot ok">✓</span><div><b>IBAN geçerli</b><div class="muted">Kontrol algoritmasından geçti.</div></div></div><div class="card"><dl class="kv"><dt>IBAN</dt><dd>${f}</dd><dt>Ülke</dt><dd>${s.slice(0,2)}</dd>${extra}</dl><div class="row" style="margin-top:12px"><button class="btn" onclick="copyText('${s}')">Boşluksuz kopyala</button></div></div><p class="note">Geçerli IBAN, hesabın açık olduğunu veya kime ait olduğunu göstermez. Para göndermeden önce alıcı adını bankanın ekranında kontrol et.</p>`});
+});</script>
+</main>
+<footer><div class="wrap">
+<div class="grid g4">
+<div><h4>Mehmet Fatih İçin</h4><p>Yazılım & Veritabanı Uzmanı · .NET · SQL Server · Oracle · React Native mobil uygulama geliştirici. İstanbul.</p>
+<p><a href="mailto:mfatihicin@gmail.com">mfatihicin@gmail.com</a></p>
+<p class="row"><a href="https://www.linkedin.com/in/mfatihicin" rel="me noopener">LinkedIn</a> · <a href="https://github.com/mfatihicin" rel="me noopener">GitHub</a></p></div>
+<div><h4>Uygulamalar</h4><ul><li><a href="/uygulamalar/streakflow.html">StreakFlow — Alışkanlık & Seri Takibi</a></li><li><a href="/uygulamalar/parakit.html">Parakit — Harcama & Borç Takibi</a></li><li><a href="/uygulamalar/liarloop.html">LiarLoop — Sahtekar Kim? Kelime Oyunu</a></li><li><a href="/uygulamalar/keephold.html">KeepHold — Fotoğraf Kasası & Şifre Kilidi</a></li><li><a href="/uygulamalar/masaplay.html">MasaPlay — Online Tavla & Masa Oyunları</a></li></ul></div>
+<div><h4>Online Araçlar</h4><ul><li><a href="/araclar/site-guvenli-mi.html">Site Güvenli mi? Sorgulama</a></li><li><a href="/araclar/dns-sorgulama.html">DNS Sorgulama</a></li><li><a href="/araclar/ip-adresim.html">IP Adresim Nedir?</a></li><li><a href="/araclar/internet-hiz-testi.html">İnternet Hız Testi</a></li><li><a href="/araclar/sifre-olusturucu.html">Güçlü Şifre Oluşturucu</a></li><li><a href="/araclar/qr-kod-olusturucu.html">QR Kod Oluşturucu</a></li><li><a href="/araclar/iban-dogrulama.html">IBAN Doğrulama</a></li><li><a href="/araclar/tc-kimlik-dogrulama.html">TC Kimlik No Doğrulama</a></li><li><a href="/araclar/kdv-hesaplama.html">KDV Hesaplama</a></li><li><a href="/araclar/kredi-hesaplama.html">Kredi Hesaplama</a></li><li><a href="/araclar/internet-altyapi-sorgulama.html">İnternet Altyapı Sorgulama</a></li><li><a href="/araclar/json-bicimlendirici.html">JSON Biçimlendirici</a></li></ul></div>
+<div><h4>Site</h4><ul><li><a href="/#hakkimda">Hakkımda</a></li><li><a href="/#projeler">Kurumsal Projeler</a></li><li><a href="/#iletisim">İletişim</a></li><li><a href="/gizlilik.html">Gizlilik Politikası</a></li><li><a href="/sitemap.xml">Site Haritası</a></li></ul></div>
+</div>
+<div class="foot-bottom"><span>© <span id="year">2026</span> Mehmet Fatih İçin. Tüm hakları saklıdır.</span><span>Araçlar tarayıcında çalışır; girdiğin veriler sunucumuza gönderilmez.</span></div>
+</div></footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>
