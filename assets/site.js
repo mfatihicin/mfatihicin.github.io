@@ -5,7 +5,9 @@
 window.SITE = {
   // Cep numarası: uluslararası formatta, boşluksuz. Örn: "905551112233"
   // Boş bırakılırsa telefon ve WhatsApp butonları görünmez.
-  phone: "",
+  phone: "905418388004",
+  // Telegram kullanıcı adı (t.me/...). Boşsa gizlenir.
+  telegram: "mfatihicin",
   email: "mfatihicin@gmail.com",
 
   // Reklam altyapısı. provider: null => reklam yok (varsayılan).
@@ -53,6 +55,7 @@ window.SITE = {
     if (kind === "wa") { el.href = "https://wa.me/" + S.phone + "?text=" + encodeURIComponent("Merhaba Mehmet Bey, web siteniz üzerinden ulaşıyorum."); }
     el.hidden = false;
   });
+  $$("[data-telegram]").forEach(el => { if (!S.telegram) { el.remove(); return; } el.href = "https://t.me/" + S.telegram; el.hidden = false; });
   $$("[data-support]").forEach(el => { if (!S.supportUrl) el.remove(); else { el.href = S.supportUrl; el.hidden = false; } });
 
   // Reklam yuvaları
