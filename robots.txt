@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mfatihicin.github.io/sitemap.xml
+Sitemap: https://mfatihicin.com/sitemap.xml

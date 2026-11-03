@@ -1,4 +1,4 @@
-OWNERDOMAIN=mfatihicin.github.io
+OWNERDOMAIN=mfatihicin.com
 # Unity LevelPlay / ironSource Ads (publisher 683101)
 ironsrc.com, 683101, DIRECT
 # Liftoff Monetize (Vungle)
