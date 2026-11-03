@@ -100,3 +100,78 @@ window.SITE = {
 
   const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
 })();
+
+/* ======================================================================
+   Komut paleti — Ctrl/⌘ + K veya "/" ile açılır. İndeks: /assets/search.json
+   ====================================================================== */
+(function () {
+  let data = null, items = [], sel = 0, box = null;
+  const norm = (s) => (s || "").toLocaleLowerCase("tr").replace(/ı/g, "i").replace(/ş/g, "s").replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ö/g, "o").replace(/ç/g, "c").normalize("NFD").replace(/[̀-ͯ]/g, "");
+  function build() {
+    box = document.createElement("div");
+    box.className = "cmdk";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.setAttribute("aria-label", "Sitede ara");
+    box.innerHTML = '<div class="cmdk-box"><div class="cmdk-in"><span aria-hidden="true">🔎</span><input type="text" placeholder="Araç, uygulama, yazı ara… (ör. maaş, gizlilik, ip)" aria-label="Ara" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="cmdk-list"><kbd>Esc</kbd></div><div class="cmdk-list" id="cmdk-list" role="listbox"></div><div class="cmdk-foot"><span>↑↓ seç</span><span>Enter aç</span><span>Esc kapat</span></div></div>';
+    document.body.appendChild(box);
+    box.addEventListener("click", (e) => { if (e.target === box) close(); });
+    const inp = box.querySelector("input");
+    inp.addEventListener("input", () => { sel = 0; draw(inp.value); });
+    inp.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") { sel = Math.min(sel + 1, items.length - 1); mark(); e.preventDefault(); }
+      else if (e.key === "ArrowUp") { sel = Math.max(sel - 1, 0); mark(); e.preventDefault(); }
+      else if (e.key === "Enter") { const a = box.querySelectorAll(".cmdk-list a")[sel]; if (a) { a.click(); } e.preventDefault(); }
+      else if (e.key === "Escape") close();
+    });
+  }
+  function score(it, q) {
+    const words = norm(q).split(/\s+/).filter(Boolean);
+    if (!words.length) return it.p || 0;
+    const t = norm(it.t), k = norm(it.k || "") + " " + norm(it.d || "");
+    let s = 0;
+    for (const w of words) {
+      if (t.startsWith(w)) s += 30;
+      else if (t.split(/\s+/).some((x) => x.startsWith(w))) s += 20;
+      else if (t.includes(w)) s += 12;
+      else if (k.includes(w)) s += 6;
+      else return -1;
+    }
+    return s + (it.p || 0) / 10;
+  }
+  function draw(q) {
+    const list = box.querySelector(".cmdk-list");
+    if (!data) { list.innerHTML = '<div class="cmdk-empty">Yükleniyor…</div>'; return; }
+    items = data.map((it) => [score(it, q), it]).filter((x) => x[0] >= 0).sort((a, b) => b[0] - a[0]).slice(0, 12).map((x) => x[1]);
+    if (!items.length) { list.innerHTML = `<div class="cmdk-empty">“${esc(q)}” için sonuç yok. Daha kısa bir kelime dene ya da <a href="/araclar/">tüm araçlara</a> göz at.</div>`; return; }
+    list.innerHTML = items.map((it, i) => `<a href="${it.u}" role="option" id="cmdk-${i}"><span class="e" aria-hidden="true">${it.e || "•"}</span><span class="t"><b>${esc(it.t)}</b><small>${esc(it.d || "")}</small></span><span class="k">${esc(it.c)}</span></a>`).join("");
+    list.querySelectorAll("a").forEach((a, i) => a.addEventListener("mousemove", () => { if (sel !== i) { sel = i; mark(); } }));
+    mark();
+  }
+  function mark() {
+    box.querySelectorAll(".cmdk-list a").forEach((a, i) => a.setAttribute("aria-selected", String(i === sel)));
+    const a = box.querySelectorAll(".cmdk-list a")[sel];
+    if (a) { a.scrollIntoView({ block: "nearest" }); box.querySelector("input").setAttribute("aria-activedescendant", a.id); }
+  }
+  let lastFocus = null;
+  function open(prefill) {
+    if (!box) build();
+    lastFocus = document.activeElement;
+    box.classList.add("open");
+    document.body.style.overflow = "hidden";
+    const inp = box.querySelector("input");
+    inp.value = prefill || "";
+    inp.focus();
+    draw(inp.value);
+    if (!data) fetch("/assets/search.json").then((r) => r.json()).then((j) => { data = j; draw(inp.value); }).catch(() => { box.querySelector(".cmdk-list").innerHTML = '<div class="cmdk-empty">Arama dizini yüklenemedi. Sayfayı yenileyip tekrar dene.</div>'; });
+  }
+  function close() { if (!box) return; box.classList.remove("open"); document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
+  document.addEventListener("keydown", (e) => {
+    const typing = /input|textarea|select/i.test((e.target || {}).tagName || "") || (e.target && e.target.isContentEditable);
+    if ((e.key === "k" || e.key === "K") && (e.metaKey || e.ctrlKey)) { e.preventDefault(); box && box.classList.contains("open") ? close() : open(); }
+    else if (e.key === "/" && !typing) { e.preventDefault(); open(); }
+  });
+  document.querySelectorAll("[data-cmdk]").forEach((b) => b.addEventListener("click", (e) => { e.preventDefault(); open(b.dataset.cmdk || ""); }));
+  const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+  document.querySelectorAll("kbd[data-mod]").forEach((k) => (k.textContent = isMac ? "⌘K" : "Ctrl K"));
+})();
