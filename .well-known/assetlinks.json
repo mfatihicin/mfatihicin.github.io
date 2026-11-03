@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.mfatihicin.liarloop",
+      "sha256_cert_fingerprints": [
+        "CE:9C:F3:74:99:42:BD:EA:5A:2E:2C:67:1D:B7:E6:CF:D9:E2:80:A8:2D:7C:E2:65:2F:06:F0:1D:CD:96:C9:48"
+      ]
+    }
+  }
+]
