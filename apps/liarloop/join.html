@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0c0912" />
+    <meta name="description" content="Join a private LiarLoop game room." />
+    <title>Join LiarLoop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="join-shell">
+      <section class="join-card">
+        <span class="join-mark" aria-hidden="true">◉</span>
+        <p class="eyebrow">PRIVATE GAME INVITE</p>
+        <div id="valid-invite">
+          <h1 id="join-title">You are invited to LiarLoop</h1>
+          <p id="join-copy" class="hero-copy">
+            Open the app and join the private table with this room code.
+          </p>
+          <div id="room-code" class="join-code" aria-label="Room code"></div>
+          <div class="join-actions">
+            <a id="open-app" class="join-button join-button-primary" href="#">
+              Open LiarLoop
+            </a>
+            <a
+              class="join-button"
+              href="https://apps.apple.com/app/id6796614340"
+              rel="noreferrer"
+            >
+              Download for iPhone
+            </a>
+            <a
+              class="join-button"
+              href="https://play.google.com/store/apps/details?id=com.mfatihicin.liarloop"
+              rel="noreferrer"
+            >
+              Download for Android
+            </a>
+          </div>
+          <p id="join-help" class="join-help">
+            Only join rooms shared by people you know.
+          </p>
+        </div>
+        <div id="invalid-invite" class="is-hidden">
+          <h1 id="invalid-title">Invalid invitation</h1>
+          <p id="invalid-copy" class="hero-copy">
+            This link does not contain a valid LiarLoop room code.
+          </p>
+        </div>
+      </section>
+    </main>
+    <script>
+      (() => {
+        const code = new URLSearchParams(window.location.search)
+          .get('code')
+          ?.toUpperCase();
+        const valid = /^[A-HJ-NP-Z2-9]{6}$/.test(code || '');
+        const Turkish = (navigator.language || '').toLowerCase().startsWith('tr');
+
+        if (!valid) {
+          document.querySelector('#valid-invite').classList.add('is-hidden');
+          document.querySelector('#invalid-invite').classList.remove('is-hidden');
+        } else {
+          document.querySelector('#room-code').textContent = code;
+          document.querySelector('#open-app').href = `liarloop://join?code=${code}`;
+        }
+
+        if (Turkish) {
+          document.documentElement.lang = 'tr';
+          document.title = 'LiarLoop Masasına Katıl';
+          document.querySelector('#join-title').textContent = 'LiarLoop masasına davetlisin';
+          document.querySelector('#join-copy').textContent =
+            'Uygulamayı aç ve bu oda koduyla özel masaya katıl.';
+          document.querySelector('#open-app').textContent = 'LiarLoop’u Aç';
+          document.querySelector('#join-help').textContent =
+            'Yalnızca tanıdığın kişilerin paylaştığı odalara katıl.';
+          document.querySelector('#invalid-title').textContent = 'Geçersiz davet';
+          document.querySelector('#invalid-copy').textContent =
+            'Bu bağlantıda geçerli bir LiarLoop oda kodu bulunmuyor.';
+        }
+      })();
+    </script>
+  </body>
+</html>
