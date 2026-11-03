@@ -17,7 +17,7 @@ window.SITE = {
   ads: { provider: null },
 
   // Ziyaretçi analizi (çerezsiz). Örn: { provider: "goatcounter", code: "mfatihicin" }
-  analytics: { provider: null },
+  analytics: { provider: "cloudflare", token: "e86a4488e5fd4628b8c4f8ef418019ea" },
 
   // Bağış / destek linki (Buy Me a Coffee, GitHub Sponsors vb.). Boşsa gizlenir.
   supportUrl: ""
@@ -72,6 +72,12 @@ window.SITE = {
   }
 
   // Analiz
+  if (S.analytics && S.analytics.provider === "cloudflare" && S.analytics.token) {
+    const sc = document.createElement("script");
+    sc.defer = true; sc.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    sc.setAttribute("data-cf-beacon", JSON.stringify({ token: S.analytics.token }));
+    document.body.appendChild(sc);
+  }
   if (S.analytics && S.analytics.provider === "goatcounter" && S.analytics.code) {
     const sc = document.createElement("script");
     sc.async = true; sc.src = "https://gc.zgo.at/count.js";
