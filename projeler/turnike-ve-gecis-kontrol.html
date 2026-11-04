@@ -116,8 +116,8 @@
 <text x="710" y="142" font-size="12" fill="#4a5868" text-anchor="middle">onay / ret</text>
 <polyline points="835,150 835,248" fill="none" stroke="#5b6b7d" stroke-width="1.6" marker-end="url(#ah)"/>
 <text x="843" y="204" font-size="12" fill="#4a5868" text-anchor="start">geçiş kaydı</text>
-<polyline points="585,150 585,248" fill="none" stroke="#5b6b7d" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ah)"/>
-<text x="593" y="204" font-size="12" fill="#4a5868" text-anchor="start">ağ yokken</text>
+
+
 <rect x="20" y="60" width="150" height="90" rx="10" fill="#f4f6f8" stroke="#2b3a4a" stroke-width="1.6"/>
 <text x="95.0" y="87.0" font-size="15" font-weight="600" fill="#1a2330" text-anchor="middle">Ziyaretçi</text>
 <text x="95.0" y="107.0" font-size="12" fill="#4a5868" text-anchor="middle">QR e-bilet</text>
@@ -137,10 +137,10 @@
 <rect x="750" y="250" width="170" height="80" rx="10" fill="#f4f6f8" stroke="#2b3a4a" stroke-width="1.6"/>
 <text x="835.0" y="280.0" font-size="15" font-weight="600" fill="#1a2330" text-anchor="middle">Veritabanı</text>
 <text x="835.0" y="300.0" font-size="12" fill="#4a5868" text-anchor="middle">SQL Server</text>
-<rect x="500" y="250" width="170" height="80" rx="10" fill="#fbfbfb" stroke="#7a8796" stroke-width="1.6" stroke-dasharray="6 5"/>
-<text x="585.0" y="272.0" font-size="15" font-weight="600" fill="#1a2330" text-anchor="middle">Yerel doğrulama</text>
-<text x="585.0" y="292.0" font-size="12" fill="#4a5868" text-anchor="middle">yalnızca bağlantı</text>
-<text x="585.0" y="308.0" font-size="12" fill="#4a5868" text-anchor="middle">kesilince</text>
+
+
+
+
 
 </svg></div><figcaption>Basitleştirilmiş akış. İç adresler, sunucular ve güvenlik katmanları gösterilmez.</figcaption></figure>
 <div class="article"><h2>Sorun</h2>
@@ -148,13 +148,12 @@
 <h2>Rolüm</h2>
 <p>Tek geliştirici olarak analizden canlıya alıma kadar: mimari, turnike başındaki geçiş servisi, merkezi bilet API'si, veritabanı ve turnike donanımı entegrasyonu (okuyucular, röle, “döndü” sinyali).</p>
 <h2>Çözüm</h2>
-<p>Ziyaretçi, e-biletindeki QR kodu ya da kimlik kartını turnikedeki okuyucuya okutur. Turnike başındaki geçiş servisi okunan bilgiyi merkezi bilet API'sine gönderir. API bileti doğrular: geçerli mi, bu yapı ve bu gün için mi, daha önce kullanılmış mı. Onay gelince servis röleyi tetikler ve kol açılır.</p>
+<p>Ziyaretçi, e-biletindeki QR kodu ya da kimlik kartını turnikedeki okuyucuya okutur. Turnike başındaki geçiş servisi okunan bilgiyi merkezi bilet API'sine gönderir. API bileti doğrular. Onay gelince servis röleyi tetikler ve kol açılır.</p>
 <p>Geçiş, kol gerçekten döndüğünde tamamlanır. Turnikenin "döndü" sinyali sisteme geri bildirilir ve geçiş kaydı ancak o an kesinleşir; okutulup vazgeçilen bilet kullanılmış sayılmaz.</p>
-<p>Ağ bağlantısı kesildiğinde turnikeler yerel doğrulamayla çalışmaya devam eder. Bağlantı geri geldiğinde kayıtlar merkeze aktarılır, ziyaretçi kesintiyi fark etmez.</p>
 <h2>Sonuç</h2>
 <ul><li>Kapıdaki elle kontrol yükü kalktı, aynı biletin ikinci kez kullanılması engellendi, içerideki ziyaretçi sayısı anlık izlenebilir hale geldi.</li></ul>
 <h2>Teknolojiler</h2>
-<ul><li><b>Backend:</b> C#, .NET Core, REST API</li><li><b>Veritabanı:</b> SQL Server</li><li><b>Donanım:</b> QR okuyucu, kimlik kartı okuyucu, röle kontrollü turnike, turnike kontrol birimi</li><li><b>Entegrasyonlar:</b> Merkezi biletleme platformu, el terminalleri, gişe</li><li><b>Öne çıkan yetenek:</b> Çevrim dışı çalışma ve bağlantı gelince senkronizasyon</li></ul><div class="cs-try"><p>Bu altyapının yoğun bir bayram sabahı nasıl davrandığını <a href="/#sim">ana sayfadaki simülasyonda</a> kendin deneyebilirsin: bir bilet okut, yükü artır, önbelleği kapat.</p></div></div>
+<ul><li><b>Backend:</b> C#, .NET Core, REST API</li><li><b>Veritabanı:</b> SQL Server</li><li><b>Donanım:</b> QR ve kimlik kartı okuyucuları, röle kontrollü turnike</li><li><b>Entegrasyonlar:</b> Merkezi biletleme platformu, el terminalleri, gişe</li></ul><div class="cs-try"><p>Bu altyapının yoğun bir bayram sabahı nasıl davrandığını <a href="/#sim">ana sayfadaki simülasyonda</a> kendin deneyebilirsin: bir bilet okut, yükü artır, önbelleği kapat.</p></div></div>
 <nav class="cs-next" aria-label="Diğer projeler"><span></span><a href="/projeler/merkezi-e-bilet-ve-gise">Merkezi e-bilet ve gişe platformu →</a></nav>
 <div class="contact" style="margin-top:40px"><div><h2 style="margin-top:0">Benzer bir sisteme mi ihtiyacın var?</h2><p>Biletleme, geçiş kontrolü, donanım entegrasyonu ya da kamu entegrasyonları: kısaca anlat, en kısa sürede dönüş yaparım.</p></div>
 <div class="row"><a class="btn" href="/hizmetler.html#teklif">Teklif formu</a><a class="btn ghost" href="mailto:mfatihicin@gmail.com?subject=Turnike ve geçiş kontrol sistemi">E-posta</a><a class="btn ghost" href="https://wa.me/905418388004" target="_blank" rel="noopener">WhatsApp</a></div></div>

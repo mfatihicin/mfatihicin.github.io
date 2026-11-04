@@ -97,7 +97,7 @@
 <p class="cs-org">Millî Saraylar İdaresi Başkanlığı</p>
 <h1>Merkezi e-bilet ve gişe platformu</h1>
 <p class="lead">Ülke genelindeki saray ve müzeler için çevrim içi satış, gişe ve acente kanallarını tek merkezde toplayan biletleme platformu.</p>
-<dl class="cs-meta"><div><dt>Rol</dt><dd>Tek geliştirici</dd></div><div><dt>Teknoloji</dt><dd>.NET Core, SQL Server, sanal POS, e-Devlet/KPS</dd></div></dl><p class="cs-live"><a href="https://bilet.millisaraylar.gov.tr/" target="_blank" rel="noopener">bilet.millisaraylar.gov.tr</a></p>
+<dl class="cs-meta"><div><dt>Rol</dt><dd>Tek geliştirici</dd></div><div><dt>Teknoloji</dt><dd>.NET Core, SQL Server, sanal POS, e-Devlet/KPS</dd></div></dl>
 </div></section>
 <section class="cs-body" style="padding-top:24px"><div class="wrap">
 <figure class="arch"><div class="arch-scroll"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400">
@@ -145,7 +145,7 @@
 <p>Tüm yapılar için tek bir biletleme platformu kuruldu. Ziyaretçi biletini çevrim içi alabiliyor, gişeden alabiliyor ya da acentesi aracılığıyla edinebiliyor. Bütün kanallar aynı merkezi API'ye bağlı olduğu için bir bilet hangi kanaldan satılırsa satılsın her turnikede ve el terminalinde aynı şekilde doğrulanıyor.</p>
 <p>Çevrim içi ödemeler banka sanal POS entegrasyonuyla alınıyor. Bayram sabahı gibi ani yük artışlarında sık okunan veriler önbellekten sunuluyor; veritabanına yalnızca gerçekten gerektiğinde gidiliyor. Gişe uygulaması da aynı altyapıyı kullandığı için gün sonu raporları tüm kanalları birlikte gösteriyor.</p>
 <h2>Sonuç</h2>
-<ul><li>Platformun hizmet verdiği yapılar 2024'te 8,7 milyon ziyaretçi ağırladı; bir önceki yıla göre %20 artış (kurumun kamuya açıkladığı rakam).</li><li>Satış, ödeme ve giriş tek kaynaktan izlenebilir hale geldi; yoğun dönemlerde kuyruğun bir kısmı çevrim içi satışa kaydı.</li></ul>
+<ul><li>Satış, ödeme ve giriş tek kaynaktan izlenebilir hale geldi; yoğun dönemlerde kuyruğun bir kısmı çevrim içi satışa kaydı.</li></ul>
 <h2>Teknolojiler</h2>
 <ul><li><b>Backend:</b> C#, .NET, ortak REST API katmanı (rol tabanlı yetkilendirme)</li><li><b>Veritabanı:</b> SQL Server</li><li><b>Performans:</b> Bellek içi önbellek katmanı</li><li><b>Ödeme:</b> Banka sanal POS entegrasyonu</li><li><b>Entegrasyonlar:</b> Turnike ve el terminalleri, gişe, acente portalı, e-Devlet ve KPS kimlik doğrulama</li><li><b>Arayüz:</b> Web (çevrim içi satış), gişe uygulaması</li></ul><div class="cs-try"><p>Bu altyapının yoğun bir bayram sabahı nasıl davrandığını <a href="/#sim">ana sayfadaki simülasyonda</a> kendin deneyebilirsin: bir bilet okut, yükü artır, önbelleği kapat.</p></div></div>
 <nav class="cs-next" aria-label="Diğer projeler"><a href="/projeler/turnike-ve-gecis-kontrol">← Turnike ve geçiş kontrol sistemi</a><a href="/projeler/el-terminali-uygulamasi">El terminali ile bilet doğrulama →</a></nav>
