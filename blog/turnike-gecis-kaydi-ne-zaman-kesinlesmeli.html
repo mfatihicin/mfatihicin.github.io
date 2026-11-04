@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=8">
+<link rel="stylesheet" href="/assets/style.css?v=9">
 <meta name="google-site-verification" content="J-4BMNQ-aoJ_CTDvmhIF6c-XFz1i_h6v_tL80a5kwK4">
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var _c=null;try{_c=localStorage.getItem("consent")}catch(e){}
 gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:_c==="granted"?"granted":"denied",wait_for_update:500});
@@ -54,7 +54,7 @@ gtag("js",new Date());gtag("config","G-3SZL3PBNQ6");</script>
 <main id="main">
 <section style="padding-top:40px"><div class="wrap"><nav class="crumbs" aria-label="breadcrumb"><a href="/">Ana Sayfa</a> › <a href="/blog/">Blog</a> › Turnike Sistemlerinde Geçiş Kaydı Ne Zaman Kesinleşmeli? Donanımla Tutarlı Veri Tasarımı</nav><article class="article">
 <h1>Turnike Sistemlerinde Geçiş Kaydı Ne Zaman Kesinleşmeli? Donanımla Tutarlı Veri Tasarımı</h1>
-<p class="muted">Mehmet Fatih İçin · <time datetime="2026-11-04">1 Kasım 2026</time> · 7 dk okuma</p>
+<p class="muted">Mehmet Fatih İçin · <time datetime="2026-11-04">4 Kasım 2026</time> · 7 dk okuma</p>
 <p>Bir turnikenin önünde duran ziyaretçi için her şey tek bir an gibi görünür: QR'ı okut, ışık yeşile dönsün, kol dönsün. Yazılım tarafında ise bu “an” en az dört ayrı olaydan oluşur ve hangisinde bileti “kullanıldı” saydığınız, sistemin güvenilirliğini belirler. Bu yazıda, kurumsal ölçekte geliştirdiğim geçiş kontrol sistemlerinden çıkardığım yaklaşımı genel hatlarıyla anlatıyorum. Güvenlik ayrıntılarına değil, veri tutarlılığına odaklanıyorum.</p>
 <h2>Bir geçişin dört olayı</h2>
 <ol><li><b>Okuma:</b> Okuyucu QR'ı ya da kartı okur ve kimliği gönderir.</li><li><b>Doğrulama:</b> Merkezi servis biletin geçerli olup olmadığına karar verir.</li><li><b>Açma komutu:</b> Turnikeye röle üzerinden “bir kişilik aç” sinyali gider.</li><li><b>Geçiş:</b> Kol fiilen döner ve turnike “döndü” bilgisini geri bildirir.</li></ol>

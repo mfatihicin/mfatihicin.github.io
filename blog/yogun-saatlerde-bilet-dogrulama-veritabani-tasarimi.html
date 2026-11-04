@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=8">
+<link rel="stylesheet" href="/assets/style.css?v=9">
 <meta name="google-site-verification" content="J-4BMNQ-aoJ_CTDvmhIF6c-XFz1i_h6v_tL80a5kwK4">
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var _c=null;try{_c=localStorage.getItem("consent")}catch(e){}
 gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:_c==="granted"?"granted":"denied",wait_for_update:500});
@@ -54,7 +54,7 @@ gtag("js",new Date());gtag("config","G-3SZL3PBNQ6");</script>
 <main id="main">
 <section style="padding-top:40px"><div class="wrap"><nav class="crumbs" aria-label="breadcrumb"><a href="/">Ana Sayfa</a> › <a href="/blog/">Blog</a> › Yoğun Saatlerde Bilet Doğrulama: Tek Kullanımlık Biletler İçin Veritabanı Tasarımı</nav><article class="article">
 <h1>Yoğun Saatlerde Bilet Doğrulama: Tek Kullanımlık Biletler İçin Veritabanı Tasarımı</h1>
-<p class="muted">Mehmet Fatih İçin · <time datetime="2026-11-04">1 Kasım 2026</time> · 6 dk okuma</p>
+<p class="muted">Mehmet Fatih İçin · <time datetime="2026-11-04">4 Kasım 2026</time> · 6 dk okuma</p>
 <p>Bir biletleme sisteminin en zor anı sıradan bir salı günü değil, bayramın ilk günü sabah açılış saatidir. Gişeler, internet satışı, el terminalleri ve turnikeler aynı veritabanına aynı anda yüklenir. Bu yazıda, yüksek eşzamanlılık altında tek kullanımlık biletlerin hem hızlı hem tutarlı doğrulanması için kullandığım veritabanı ilkelerini paylaşıyorum.</p>
 <h2>1. Doğrulama sorgusu tek satıra dokunmalı</h2>
 <p>Doğrulama anında yapılan iş “bu bilet var mı, kullanılmış mı?” sorusudur. Sorgu, bilet kodu üzerindeki benzersiz bir indeksle <b>tek satıra</b> gitmeli; tarih aralığı taraması, metin araması ya da büyük tablolarla birleştirme bu yolda olmamalıdır. Raporlama ihtiyaçları ayrı tablolara ya da ayrı bir okuma veritabanına taşınır.</p>
