@@ -1,0 +1,17 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yüzde Hesaplama — mfatihicin.com</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://mfatihicin.com/araclar/yuzde-hesaplama.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=8">
+<style>body{background:transparent}.emb{padding:14px}.emb-f{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin-top:10px}.emb .tool{margin:0}</style></head>
+<body><div class="emb"><div class="tool"><div class="grid g2">
+<div class="card"><h3>Bir sayının yüzdesi</h3><div class="inline"><input type="number" id="a1" value="20" aria-label="Yüzde"><span style="flex:0;align-self:center">% ×</span><input type="number" id="b1" value="1500" aria-label="Sayı"></div><p class="big" style="font-size:26px" id="r1"></p></div>
+<div class="card"><h3>A, B'nin yüzde kaçı?</h3><div class="inline"><input type="number" id="a2" value="300" aria-label="A"><span style="flex:0;align-self:center">/</span><input type="number" id="b2" value="1500" aria-label="B"></div><p class="big" style="font-size:26px" id="r2"></p></div>
+<div class="card"><h3>Yüzde artış / azalış (zam oranı)</h3><div class="inline"><input type="number" id="a3" value="25000" aria-label="Eski değer"><span style="flex:0;align-self:center">→</span><input type="number" id="b3" value="33030" aria-label="Yeni değer"></div><p class="big" style="font-size:26px" id="r3"></p></div>
+<div class="card"><h3>İndirimli / zamlı fiyat</h3><div class="inline"><input type="number" id="a4" value="1000" aria-label="Fiyat"><input type="number" id="b4" value="-15" aria-label="Yüzde (indirim için eksi)"></div><p class="muted">İndirim için eksi yaz (−15), zam için artı.</p><p class="big" style="font-size:26px" id="r4"></p></div></div></div><div class="emb-f"><span>Yüzde Hesaplama</span><a href="https://mfatihicin.com/araclar/yuzde-hesaplama.html" target="_blank" rel="noopener">mfatihicin.com ile çalışır</a></div></div>
+<script src="/assets/site.js?v=7"></script><script>window.addEventListener('DOMContentLoaded',()=>{
+const $=id=>document.getElementById(id);const n=x=>(+x||0);const fm=x=>isFinite(x)?x.toLocaleString('tr-TR',{maximumFractionDigits:4}):'—';
+function calc(){$('r1').textContent=fm(n($('a1').value)*n($('b1').value)/100);$('r2').textContent='%'+fm(n($('a2').value)/n($('b2').value)*100);
+ const d=(n($('b3').value)-n($('a3').value))/n($('a3').value)*100;$('r3').textContent=(d>0?'+%':'%')+fm(d);$('r4').textContent=fm(n($('a4').value)*(1+n($('b4').value)/100))}
+document.querySelectorAll('input').forEach(i=>i.oninput=calc);calc();
+});</script></body></html>

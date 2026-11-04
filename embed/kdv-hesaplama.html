@@ -1,0 +1,15 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KDV Hesaplama — mfatihicin.com</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://mfatihicin.com/araclar/kdv-hesaplama.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=8">
+<style>body{background:transparent}.emb{padding:14px}.emb-f{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin-top:10px}.emb .tool{margin:0}</style></head>
+<body><div class="emb"><div class="tool"><div class="card"><div class="inline"><div><label for="a">Tutar (₺)</label><input type="number" id="a" value="1000" step="0.01" min="0"></div><div><label for="r">KDV oranı (%)</label><input type="number" id="r" value="20" step="0.01" min="0"></div>
+<div><label for="m">Girilen tutar</label><select id="m"><option value="ex">KDV hariç</option><option value="in">KDV dahil</option></select></div></div>
+<div class="row" style="margin-top:10px"><button class="btn" data-r="1">%1</button><button class="btn" data-r="10">%10</button><button class="btn" data-r="20">%20</button></div>
+<dl class="kv" style="margin-top:18px;font-size:18px"><dt>KDV hariç</dt><dd id="ex"></dd><dt>KDV tutarı</dt><dd id="kv"></dd><dt>KDV dahil</dt><dd id="inc" style="color:var(--accent);font-weight:700"></dd></dl></div></div><div class="emb-f"><span>KDV Hesaplama</span><a href="https://mfatihicin.com/araclar/kdv-hesaplama.html" target="_blank" rel="noopener">mfatihicin.com ile çalışır</a></div></div>
+<script src="/assets/site.js?v=7"></script><script>window.addEventListener('DOMContentLoaded',()=>{
+const $=id=>document.getElementById(id);const f=n=>n.toLocaleString('tr-TR',{style:'currency',currency:'TRY'});
+function calc(){const a=+$('a').value||0,r=(+$('r').value||0)/100;let ex,inc;if($('m').value==='ex'){ex=a;inc=a*(1+r)}else{inc=a;ex=a/(1+r)}$('ex').textContent=f(ex);$('kv').textContent=f(inc-ex);$('inc').textContent=f(inc)}
+['a','r','m'].forEach(i=>$(i).oninput=calc);document.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{$('r').value=b.dataset.r;calc()});calc();
+});</script></body></html>

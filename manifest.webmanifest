@@ -1,11 +1,19 @@
 {
- "name": "Mehmet Fatih İçin — Araçlar & Uygulamalar",
- "short_name": "M. F. İçin",
- "start_url": "/",
+ "name": "mfatihicin.com — Araçlar, Oyunlar ve Uygulamalar",
+ "short_name": "mfatihicin",
+ "description": "Ücretsiz online araçlar, kısa beyin oyunları ve mobil uygulamalar.",
+ "id": "/",
+ "start_url": "/?source=pwa",
+ "scope": "/",
  "display": "standalone",
- "background_color": "#0b1020",
- "theme_color": "#0b1020",
+ "background_color": "#F5F6FA",
+ "theme_color": "#1D3B8F",
  "lang": "tr",
+ "categories": [
+  "utilities",
+  "productivity",
+  "games"
+ ],
  "icons": [
   {
    "src": "/assets/icon-192.png",
@@ -16,6 +24,44 @@
    "src": "/assets/icon-512.png",
    "sizes": "512x512",
    "type": "image/png"
+  },
+  {
+   "src": "/assets/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ],
+ "shortcuts": [
+  {
+   "name": "Online araçlar",
+   "url": "/araclar/",
+   "icons": [
+    {
+     "src": "/assets/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Günün bulmacası",
+   "url": "/gunun-bulmacasi",
+   "icons": [
+    {
+     "src": "/assets/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Oyunlar",
+   "url": "/oyunlar/",
+   "icons": [
+    {
+     "src": "/assets/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
   }
  ]
 }

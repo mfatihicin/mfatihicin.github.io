@@ -32,12 +32,38 @@ window.SITE = {
   const root = document.documentElement;
   try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
   const tb = $("#themeBtn");
-  if (tb) tb.addEventListener("click", () => {
-    const cur = root.dataset.theme || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-    const nxt = cur === "light" ? "dark" : "light";
-    root.dataset.theme = nxt;
-    try { localStorage.setItem("theme", nxt); } catch (e) {}
-  });
+  const EN0 = (root.lang || "").startsWith("en");
+  const ACC = [["", "#1D3B8F", EN0 ? "Cobalt" : "Kobalt"], ["turkuaz", "#0F7F7B", EN0 ? "Turquoise" : "Turkuaz"], ["mercan", "#B8372A", EN0 ? "Iznik red" : "İznik kırmızısı"], ["zumrut", "#1E7A46", EN0 ? "Emerald" : "Zümrüt"], ["safran", "#A86A0C", EN0 ? "Saffron" : "Safran"]];
+  const save = (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} };
+  let pop = null;
+  function syncPop() {
+    if (!pop) return;
+    const th = root.dataset.theme || "";
+    pop.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.t === th)));
+    const ac = root.dataset.accent || "";
+    pop.querySelectorAll(".sw button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.a === ac)));
+    const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = (ACC.find(x => x[0] === ac) || ACC[0])[1];
+  }
+  function openPop() {
+    if (!pop) {
+      pop = document.createElement("div"); pop.className = "tpop"; pop.id = "tpop"; pop.setAttribute("role", "dialog"); pop.setAttribute("aria-label", EN0 ? "Appearance" : "Görünüm");
+      pop.innerHTML = `<h5>${EN0 ? "Theme" : "Tema"}</h5><div class="seg">${[["light", EN0 ? "Light" : "Açık"], ["dark", EN0 ? "Dark" : "Koyu"], ["", EN0 ? "Auto" : "Otomatik"]].map(([k, n]) => `<button type="button" data-t="${k}">${n}</button>`).join("")}</div><h5>${EN0 ? "Accent colour" : "Vurgu rengi"}</h5><div class="sw">${ACC.map(([k, c, n]) => `<button type="button" data-a="${k}" style="background:${c}" aria-label="${n}" title="${n}"></button>`).join("")}</div>`;
+      pop.addEventListener("click", e => {
+        const t = e.target.closest("[data-t]"), a = e.target.closest("[data-a]");
+        if (t) { t.dataset.t ? root.dataset.theme = t.dataset.t : delete root.dataset.theme; save("theme", t.dataset.t); }
+        if (a) { a.dataset.a ? root.dataset.accent = a.dataset.a : delete root.dataset.accent; save("accent", a.dataset.a); if (window.gtag) gtag("event", "accent_change", { accent: a.dataset.a || "kobalt" }); }
+        syncPop();
+      });
+      tb.closest(".wrap").appendChild(pop);
+      document.addEventListener("click", e => { if (pop && !pop.hidden && !pop.contains(e.target) && !tb.contains(e.target)) { pop.hidden = true; tb.setAttribute("aria-expanded", "false"); } });
+      document.addEventListener("keydown", e => { if (e.key === "Escape" && pop && !pop.hidden) { pop.hidden = true; tb.setAttribute("aria-expanded", "false"); tb.focus(); } });
+    } else pop.hidden = !pop.hidden;
+    tb.setAttribute("aria-expanded", String(!pop.hidden));
+    syncPop();
+  }
+  if (tb) { tb.setAttribute("aria-haspopup", "dialog"); tb.setAttribute("aria-expanded", "false"); tb.addEventListener("click", openPop); }
+  try { const a = localStorage.getItem("accent"); if (a) root.dataset.accent = a; } catch (e) {}
+  syncPop();
 
   // Mobil menü
   const mb = $("#menuBtn"), nav = $("#nav");
@@ -200,6 +226,72 @@ window.SITE = {
     bar.addEventListener("click", (e) => { const b = e.target.closest("button[data-v]"); if (!b) return; set(b.dataset.v); bar.hidden = true; });
     document.body.appendChild(bar);
   }
-  if (!get()) show();
+  const framed = (() => { try { return window.top !== window; } catch (e) { return true; } })();
+  if (!get() && !framed) show();
   document.querySelectorAll("[data-consent]").forEach((b) => b.addEventListener("click", show));
+})();
+
+/* ======================================================================
+   Anonim skor ve sayaç servisi — Firebase Firestore (REST, kişisel veri yok)
+   ====================================================================== */
+(function () {
+  const P = "mfatihicin-site", K = "AIzaSyC7jqxOwIn_SyUmPP8GSZ3hxHgwvB7H7Vo";
+  const B = `https://firestore.googleapis.com/v1/projects/${P}/databases/(default)/documents`;
+  const num = (v) => Number.isInteger(v) ? { integerValue: String(v) } : { doubleValue: v };
+  async function commit(writes) {
+    const r = await fetch(`${B}:commit?key=${K}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ writes }) });
+    if (!r.ok) throw new Error(r.status);
+    return r.json();
+  }
+  async function count(g, op, v) {
+    const filters = [{ fieldFilter: { field: { fieldPath: "g" }, op: "EQUAL", value: { stringValue: g } } }];
+    if (op) filters.push({ fieldFilter: { field: { fieldPath: "v" }, op, value: num(v) } });
+    const q = { structuredAggregationQuery: { structuredQuery: { from: [{ collectionId: "scores" }], where: filters.length > 1 ? { compositeFilter: { op: "AND", filters } } : filters[0] }, aggregations: [{ alias: "n", count: {} }] } };
+    const r = await fetch(`${B}:runAggregationQuery?key=${K}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(q) });
+    if (!r.ok) throw new Error(r.status);
+    const j = await r.json();
+    return +((j[0] && j[0].result && j[0].result.aggregateFields.n.integerValue) || 0);
+  }
+  const id = () => Array.from(crypto.getRandomValues(new Uint8Array(10)), (b) => b.toString(16).padStart(2, "0")).join("");
+  window.MS = {
+    submit(g, v) {
+      return commit([{ update: { name: `projects/${P}/databases/(default)/documents/scores/${id()}`, fields: { g: { stringValue: g }, v: num(v) } }, currentDocument: { exists: false }, updateTransforms: [{ fieldPath: "t", setToServerValue: "REQUEST_TIME" }] }]).catch(() => null);
+    },
+    // lower: daha düşük değer daha iyi mi (ör. tepki süresi)
+    async rank(g, v, lower) {
+      const total = await count(g);
+      if (total < 30) return null;
+      const worse = await count(g, lower ? "GREATER_THAN" : "LESS_THAN", v);
+      return { pct: Math.round((worse / total) * 100), total };
+    },
+    hit(tool) {
+      try { const k = "hit:" + tool; if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, "1"); } catch (e) {}
+      commit([{ update: { name: `projects/${P}/databases/(default)/documents/counters/${tool}`, fields: {} }, updateMask: { fieldPaths: [] }, updateTransforms: [{ fieldPath: "n", increment: { integerValue: "1" } }] }]).catch(() => null);
+    },
+    async counters(ids) {
+      const r = await fetch(`${B}:batchGet?key=${K}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ documents: ids.map((i) => `projects/${P}/databases/(default)/documents/counters/${i}`) }) });
+      const j = await r.json(); const o = {};
+      j.forEach((d) => { if (d.found) o[d.found.name.split("/").pop()] = +d.found.fields.n.integerValue; });
+      return o;
+    },
+  };
+})();
+(function () {
+  const m = document.querySelector("[data-tool-id]"), tool = document.querySelector(".tool");
+  if (!m || !tool) return;
+  const id = m.dataset.toolId; let sent = false;
+  const fire = () => { if (sent) return; sent = true; if (window.MS) MS.hit(id); if (window.gtag) gtag("event", "tool_use", { tool: id }); };
+  ["pointerdown", "input", "keydown"].forEach((ev) => tool.addEventListener(ev, fire, { once: true, passive: true }));
+})();
+if ("serviceWorker" in navigator && location.protocol === "https:" && window.top === window) {
+  addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
+}
+(function () {
+  const el = document.getElementById("usage"); if (!el) return;
+  const P = "mfatihicin-site", K = "AIzaSyC7jqxOwIn_SyUmPP8GSZ3hxHgwvB7H7Vo";
+  fetch(`https://firestore.googleapis.com/v1/projects/${P}/databases/(default)/documents:runQuery?key=${K}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ structuredQuery: { from: [{ collectionId: "counters" }], limit: 500 } }) })
+    .then((r) => r.json()).then((j) => {
+      const n = j.reduce((s, x) => s + (x.document && !/^test/.test(x.document.name.split("/").pop()) ? +x.document.fields.n.integerValue : 0), 0);
+      if (n >= 100) { el.textContent = el.dataset.tpl.replace("{n}", n.toLocaleString(document.documentElement.lang === "en" ? "en-US" : "tr-TR")); el.hidden = false; }
+    }).catch(() => {});
 })();

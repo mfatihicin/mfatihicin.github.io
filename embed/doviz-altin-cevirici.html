@@ -1,0 +1,23 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Döviz ve Altın Çevirici — mfatihicin.com</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://mfatihicin.com/araclar/doviz-altin-cevirici.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=8">
+<style>body{background:transparent}.emb{padding:14px}.emb-f{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin-top:10px}.emb .tool{margin:0}</style></head>
+<body><div class="emb"><div class="tool"><div class="inline"><div><label for="v">Tutar</label><input type="number" id="v" value="100" min="0"></div><div><label for="f">Kaynak</label><select id="f"></select></div><div><label for="t">Hedef</label><select id="t"></select></div></div>
+<p class="big" style="font-size:30px;margin-top:16px" id="r">…</p><p class="muted" id="u"></p>
+<div class="grid g4" id="quick" style="margin-top:12px"></div>
+<h3 style="margin-top:28px">Altın</h3><div class="grid g3"><div class="card"><div class="muted">Ons altın (USD)</div><div class="big" style="font-size:24px" id="ons">…</div></div><div class="card"><div class="muted">Gram altın (24 ayar, ham)</div><div class="big" style="font-size:24px" id="gr">…</div></div><div class="card"><label for="gq" style="margin-top:0">Gram</label><input type="number" id="gq" value="10" min="0"><div class="big" style="font-size:22px;margin-top:8px" id="gt">…</div></div></div>
+<p class="note">Kurlar günlük güncellenen piyasa ortalamalarıdır; banka ve kuyumcu alış-satış fiyatları farklıdır. Gram altın, ons fiyatının 31,1035'e bölünüp dolar kuruyla çarpılmasıyla hesaplanır; işçilik ve makas dahil değildir.</p></div><div class="emb-f"><span>Döviz ve Altın Çevirici</span><a href="https://mfatihicin.com/araclar/doviz-altin-cevirici.html" target="_blank" rel="noopener">mfatihicin.com ile çalışır</a></div></div>
+<script src="/assets/site.js?v=7"></script><script>window.addEventListener('DOMContentLoaded',()=>{
+const $=id=>document.getElementById(id);let R=null,USD=null;const MAIN=['TRY','USD','EUR','GBP','CHF','SAR','AED','RUB','JPY','CNY','AZN','GEL'];
+const fm=(x,c)=>{try{return x.toLocaleString('tr-TR',{style:'currency',currency:c,maximumFractionDigits:4})}catch(e){return x.toFixed(4)+' '+c}};
+async function load(){try{const r=await fetch('https://open.er-api.com/v6/latest/USD');const j=await r.json();R=j.rates;
+ const codes=[...MAIN,...Object.keys(R).filter(c=>!MAIN.includes(c)).sort()];$('f').innerHTML=$('t').innerHTML=codes.map(c=>`<option>${c}</option>`).join('');$('f').value='USD';$('t').value='TRY';
+ $('u').textContent='Son güncelleme: '+new Date(j.time_last_update_unix*1000).toLocaleString('tr-TR');conv();
+ $('quick').innerHTML=['USD','EUR','GBP','CHF'].map(c=>`<div class="card"><div class="muted">1 ${c}</div><b>${fm(R.TRY/R[c],'TRY')}</b></div>`).join('')}catch(e){$('r').textContent='Kurlar alınamadı.'}
+ try{const g=await (await fetch('https://api.gold-api.com/price/XAU')).json();USD=g.price;gold()}catch(e){$('ons').textContent='—'}}
+function conv(){if(!R)return;const v=+$('v').value||0;$('r').textContent=fm(v,$('f').value)+' = '+fm(v/R[$('f').value]*R[$('t').value],$('t').value)}
+function gold(){if(!USD||!R)return;$('ons').textContent='$'+USD.toLocaleString('tr-TR',{maximumFractionDigits:2});const g=USD/31.1035*R.TRY;$('gr').textContent=fm(g,'TRY');$('gt').textContent=fm(g*(+$('gq').value||0),'TRY')}
+['v','f','t'].forEach(i=>$(i).oninput=conv);$('gq').oninput=gold;load();
+});</script></body></html>

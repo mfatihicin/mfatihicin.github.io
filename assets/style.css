@@ -448,3 +448,58 @@ main > section:not(.home-hero) h1{font-size:clamp(30px,4vw,46px)}
 .consent .row{gap:8px}
 .linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .linkbtn:hover{color:var(--text)}
+
+/* ---------- İznik vurgu renkleri ---------- */
+:root[data-accent="turkuaz"]{--brand:#0F7F7B;--accent:#0F7F7B;--band:#0B5F5C;--band-2:#074441;--tile:#DFF1EF}
+:root[data-theme="dark"][data-accent="turkuaz"]{--brand:#43CBC4;--accent:#43CBC4;--band:#0E3B3D;--band-2:#0A2C2E;--tile:#16403F}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"])[data-accent="turkuaz"]{--brand:#43CBC4;--accent:#43CBC4;--band:#0E3B3D;--band-2:#0A2C2E;--tile:#16403F}}
+:root[data-accent="mercan"]{--brand:#B8372A;--accent:#B8372A;--band:#9C2C21;--band-2:#731F17;--tile:#F8E4E0}
+:root[data-theme="dark"][data-accent="mercan"]{--brand:#FF8A75;--accent:#FF8A75;--band:#4A1D1C;--band-2:#371515;--tile:#4A2523}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"])[data-accent="mercan"]{--brand:#FF8A75;--accent:#FF8A75;--band:#4A1D1C;--band-2:#371515;--tile:#4A2523}}
+:root[data-accent="zumrut"]{--brand:#1E7A46;--accent:#1E7A46;--band:#176238;--band-2:#104729;--tile:#E0F1E6}
+:root[data-theme="dark"][data-accent="zumrut"]{--brand:#4CD38A;--accent:#4CD38A;--band:#123B27;--band-2:#0C2B1C;--tile:#18402C}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"])[data-accent="zumrut"]{--brand:#4CD38A;--accent:#4CD38A;--band:#123B27;--band-2:#0C2B1C;--tile:#18402C}}
+:root[data-accent="safran"]{--brand:#A86A0C;--accent:#A86A0C;--band:#8A5609;--band-2:#653F06;--tile:#F7ECD8}
+:root[data-theme="dark"][data-accent="safran"]{--brand:#F2B34B;--accent:#F2B34B;--band:#3F2F12;--band-2:#2E220C;--tile:#433416}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"])[data-accent="safran"]{--brand:#F2B34B;--accent:#F2B34B;--band:#3F2F12;--band-2:#2E220C;--tile:#433416}}
+.tpop{position:absolute;top:58px;right:16px;z-index:70;width:260px;padding:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.tpop h5{margin:0 0 8px;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.02em}
+.tpop .seg{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--card2);padding:4px;border-radius:10px;margin-bottom:14px}
+.tpop .seg button{font:inherit;font-size:13px;padding:7px 4px;border:0;border-radius:7px;background:none;color:var(--muted);cursor:pointer}
+.tpop .seg button[aria-pressed="true"]{background:var(--card);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.tpop .sw{display:flex;gap:10px}
+.tpop .sw button{width:34px;height:34px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0;box-shadow:inset 0 0 0 3px var(--card)}
+.tpop .sw button[aria-pressed="true"]{border-color:var(--text)}
+.tpop .sw button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.top .wrap{position:relative}
+/* oyun sonuç paneli */
+.gr{margin-top:16px;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--card);display:grid;gap:16px}
+.gr-main{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.gr-v{font-size:clamp(40px,7vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.gr-v small{font-size:.38em;font-weight:600;color:var(--muted);letter-spacing:0}
+.gr-p{margin:10px 0 0;font-size:18px;font-weight:600;color:var(--brand)}
+.gr-p span{display:block;font-size:13px;font-weight:400;color:var(--muted);margin-top:2px}
+.gr-nb{margin:8px 0 0;font-weight:600}
+.gr-side{font-size:14px}
+.gr-side svg{display:block;margin-top:6px;max-width:100%}
+.nextstep{margin:22px 0 8px;padding:0}
+.nextstep h2{font-size:18px;margin:0 0 10px}
+.gcard.feat{background:linear-gradient(160deg,var(--band),var(--band-2));color:var(--band-ink);border-color:transparent}
+.gcard.feat small,.gcard.feat .tmeta{color:inherit;opacity:.8}
+.gcard.feat .gico{background:rgba(255,255,255,.15)}
+.embed-box{margin:18px 0;padding:14px 18px;border:1px dashed var(--line);border-radius:14px;background:var(--card)}
+.embed-box summary{cursor:pointer;font-weight:600}
+.embed-box textarea{width:100%;margin:8px 0;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text)}
+/* imza an: kendini çizen İznik yıldız karoları */
+.home-hero{position:relative;overflow:hidden}
+.home-hero>.wrap{position:relative;z-index:1}
+.hero-art{position:absolute;top:-40px;right:-120px;width:min(760px,70vw);height:auto;color:var(--brand);opacity:.11;pointer-events:none;z-index:0;
+  -webkit-mask-image:radial-gradient(ellipse at 70% 40%,#000 30%,transparent 72%);mask-image:radial-gradient(ellipse at 70% 40%,#000 30%,transparent 72%)}
+.hero-art *{vector-effect:non-scaling-stroke}
+@media (prefers-reduced-motion:no-preference){
+  .hero-art polygon,.hero-art circle,.hero-art rect{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.6s cubic-bezier(.6,.1,.2,1) forwards}
+  .hero-art circle{animation-delay:.6s}.hero-art rect{animation-delay:1s}
+  @keyframes draw{to{stroke-dashoffset:0}}
+}
+@media (max-width:900px){.hero-art{opacity:.07;right:-200px}}
+.usage{margin:6px 0 0;font:600 14px var(--mono);color:var(--brand)}

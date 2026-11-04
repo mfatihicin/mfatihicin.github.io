@@ -1,0 +1,26 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Net Brüt Maaş Hesaplama 2026 — mfatihicin.com</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://mfatihicin.com/araclar/maas-hesaplama.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=8">
+<style>body{background:transparent}.emb{padding:14px}.emb-f{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin-top:10px}.emb .tool{margin:0}</style></head>
+<body><div class="emb"><div class="tool"><div class="inline"><div><label for="amt">Aylık tutar (₺)</label><input type="number" id="amt" value="60000" min="0" step="100"></div>
+<div><label for="mode">Girilen tutar</label><select id="mode"><option value="b">Brüt maaş</option><option value="n">Net maaş (Ocak)</option></select></div></div>
+<dl class="kv" style="margin-top:18px;font-size:17px"><dt>Ocak net</dt><dd id="n1" style="color:var(--accent);font-weight:700"></dd><dt>Brüt</dt><dd id="br"></dd><dt>Yıllık net toplam</dt><dd id="ny"></dd><dt>Ortalama aylık net</dt><dd id="na"></dd><dt>İşverene aylık maliyet</dt><dd id="ic"></dd></dl>
+<div class="overflow" style="margin-top:16px"><table id="tb"></table></div>
+<p class="note">2026 parametreleri: brüt asgari ücret 33.030 ₺, SGK işçi %14, işsizlik işçi %1, SGK tavanı 297.270 ₺, damga vergisi ‰7,59, gelir vergisi dilimleri 190 bin / 400 bin / 1,5 milyon / 5,3 milyon ₺ (%15–%40). İşveren maliyeti, imalat dışı sektörler için 2026'da uygulanan 2 puanlık hazine indirimiyle (SGK %19,75 + işsizlik %2) hesaplanır; imalat sektöründe indirim 5 puandır. Sonuçlar bilgilendirme amaçlıdır; özel indirim ve teşvikler dahil değildir.</p></div><div class="emb-f"><span>Net Brüt Maaş Hesaplama 2026</span><a href="https://mfatihicin.com/araclar/maas-hesaplama.html" target="_blank" rel="noopener">mfatihicin.com ile çalışır</a></div></div>
+<script src="/assets/site.js?v=7"></script><script>window.addEventListener('DOMContentLoaded',()=>{
+const $=id=>document.getElementById(id);const f=n=>n.toLocaleString('tr-TR',{style:'currency',currency:'TRY'});
+const P={asg:33030,tavan:297270,sgk:.14,iss:.01,dv:.00759,br:[[190000,.15],[400000,.20],[1500000,.27],[5300000,.35],[Infinity,.40]],isvSgk:.1975,isvIss:.02};
+function tax(x){let t=0,prev=0;for(const [lim,r] of P.br){if(x<=prev)break;t+=(Math.min(x,lim)-prev)*r;prev=lim}return t}
+const aMat=P.asg*(1-P.sgk-P.iss),aDv=P.asg*P.dv;
+function year(b){let cum=0,cumA=0;const rows=[];for(let m=0;m<12;m++){const base=Math.min(b,P.tavan);const sgk=base*P.sgk,iss=base*P.iss,mat=b-sgk-iss;
+ const gv=tax(cum+mat)-tax(cum);const ist=tax(cumA+aMat)-tax(cumA);const gvn=Math.max(0,gv-ist);const dv=Math.max(0,b*P.dv-aDv);cum+=mat;cumA+=aMat;
+ rows.push({b,sgk,iss,mat,cum,gvn,dv,net:b-sgk-iss-gvn-dv,cost:b+base*(P.isvSgk+P.isvIss)})}return rows}
+function fromNet(n){let lo=n,hi=n*2.5+1000;for(let i=0;i<60;i++){const mid=(lo+hi)/2;if(year(mid)[0].net<n)lo=mid;else hi=mid}return (lo+hi)/2}
+const AY=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+function calc(){let v=+$('amt').value||0;const b=$('mode').value==='b'?v:fromNet(v);const r=year(b);const tot=r.reduce((a,x)=>a+x.net,0);
+ $('n1').textContent=f(r[0].net);$('br').textContent=f(b);$('ny').textContent=f(tot);$('na').textContent=f(tot/12);$('ic').textContent=f(r[0].cost);
+ $('tb').innerHTML='<tr><th>Ay</th><th>SGK+İşsizlik</th><th>Gelir vergisi</th><th>Damga</th><th>Net</th><th>Kümülatif matrah</th></tr>'+r.map((x,i)=>`<tr><td>${AY[i]}</td><td>${f(x.sgk+x.iss)}</td><td>${f(x.gvn)}</td><td>${f(x.dv)}</td><td><b>${f(x.net)}</b></td><td>${f(x.cum)}</td></tr>`).join('')}
+['amt','mode'].forEach(i=>$(i).oninput=calc);calc();
+});</script></body></html>
