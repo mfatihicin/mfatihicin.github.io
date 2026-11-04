@@ -504,3 +504,4 @@ main > section:not(.home-hero) h1{font-size:clamp(30px,4vw,46px)}
 @media (max-width:900px){.hero-art{opacity:.07;right:-200px}}
 .usage{margin:6px 0 0;font:600 14px var(--mono);color:var(--brand)}
 [hidden]{display:none!important}
+.byline{color:var(--muted);font-size:14px;margin:18px 0 0}.byline a{color:inherit;text-decoration:underline;text-underline-offset:2px}

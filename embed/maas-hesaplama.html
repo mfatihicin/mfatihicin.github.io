@@ -2,14 +2,14 @@
 <title>Net Brüt Maaş Hesaplama 2026 — mfatihicin.com</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://mfatihicin.com/araclar/maas-hesaplama.html">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=9">
+<link rel="stylesheet" href="/assets/style.css?v=10">
 <style>body{background:transparent}.emb{padding:14px}.emb-f{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin-top:10px}.emb .tool{margin:0}</style></head>
 <body><div class="emb"><div class="tool"><div class="inline"><div><label for="amt">Aylık tutar (₺)</label><input type="number" id="amt" value="60000" min="0" step="100"></div>
 <div><label for="mode">Girilen tutar</label><select id="mode"><option value="b">Brüt maaş</option><option value="n">Net maaş (Ocak)</option></select></div></div>
 <dl class="kv" style="margin-top:18px;font-size:17px"><dt>Ocak net</dt><dd id="n1" style="color:var(--accent);font-weight:700"></dd><dt>Brüt</dt><dd id="br"></dd><dt>Yıllık net toplam</dt><dd id="ny"></dd><dt>Ortalama aylık net</dt><dd id="na"></dd><dt>İşverene aylık maliyet</dt><dd id="ic"></dd></dl>
 <div class="overflow" style="margin-top:16px"><table id="tb"></table></div>
 <p class="note">2026 parametreleri: brüt asgari ücret 33.030 ₺, SGK işçi %14, işsizlik işçi %1, SGK tavanı 297.270 ₺, damga vergisi ‰7,59, gelir vergisi dilimleri 190 bin / 400 bin / 1,5 milyon / 5,3 milyon ₺ (%15–%40). İşveren maliyeti, imalat dışı sektörler için 2026'da uygulanan 2 puanlık hazine indirimiyle (SGK %19,75 + işsizlik %2) hesaplanır; imalat sektöründe indirim 5 puandır. Sonuçlar bilgilendirme amaçlıdır; özel indirim ve teşvikler dahil değildir.</p></div><div class="emb-f"><span>Net Brüt Maaş Hesaplama 2026</span><a href="https://mfatihicin.com/araclar/maas-hesaplama.html" target="_blank" rel="noopener">mfatihicin.com ile çalışır</a></div></div>
-<script src="/assets/site.js?v=7"></script><script>window.addEventListener('DOMContentLoaded',()=>{
+<script src="/assets/site.js?v=8"></script><script>window.addEventListener('DOMContentLoaded',()=>{
 const $=id=>document.getElementById(id);const f=n=>n.toLocaleString('tr-TR',{style:'currency',currency:'TRY'});
 const P={asg:33030,tavan:297270,sgk:.14,iss:.01,dv:.00759,br:[[190000,.15],[400000,.20],[1500000,.27],[5300000,.35],[Infinity,.40]],isvSgk:.1975,isvIss:.02};
 function tax(x){let t=0,prev=0;for(const [lim,r] of P.br){if(x<=prev)break;t+=(Math.min(x,lim)-prev)*r;prev=lim}return t}

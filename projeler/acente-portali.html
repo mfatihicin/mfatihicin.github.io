@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=9">
+<link rel="stylesheet" href="/assets/style.css?v=10">
 <meta name="google-site-verification" content="J-4BMNQ-aoJ_CTDvmhIF6c-XFz1i_h6v_tL80a5kwK4">
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var _c=null;try{_c=localStorage.getItem("consent")}catch(e){}
 gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:_c==="granted"?"granted":"denied",wait_for_update:500});
@@ -158,7 +158,15 @@ gtag("js",new Date());gtag("config","G-3SZL3PBNQ6");</script>
 <p>Acenteye özel kampanyalar tanımlanabiliyor; acente kendi satışlarını ve biletlerin ne kadarının kullanıldığını raporlardan izleyebiliyor. Aynı işlemler acenteler için geliştirdiğim mobil uygulamadan da yapılabiliyor.</p>
 <h2>Sonuç</h2>
 <ul><li>Grup girişleri gişe kuyruğundan çıktı; acente doğrulaması ve mutabakat elle yapılmaz hale geldi.</li></ul>
-<h2>Teknolojiler</h2>
+<h2>Zor kısımlar ve verdiğim kararlar</h2>
+<h3>Güveni kayıt anında kurmak</h3>
+<p>Acentenin lisanslı olup olmadığı her siparişte elle kontrol edilirse hem zaman kaybı hem hata riski olur. Doğrulamayı TÜRSAB entegrasyonuyla kayıt anına taşıdım; sonraki her işlemde ayrıca kontrol gerekmiyor.</p>
+<h3>Yeni bir bilet türü yaratmamak</h3>
+<p>Portal biletleri ayrı bir sistemden değil, merkezi biletleme API'sinden üretiliyor. Bu sayede turnike ve el terminali için ek kural yazmak gerekmedi; yeni bir satış kanalı eklemek, kapıdaki hiçbir şeyi değiştirmedi.</p>
+<h3>Acenteye kendi verisini göstermek</h3>
+<p>Mutabakat soruları genellikle “ne aldım, ne kadarı kullanıldı?” sorusudur. Satış ve kullanım raporlarını acentenin kendi ekranına koydum; bu soruların cevabı için kuruma ulaşmak gerekmiyor.</p>
+<h2>Öğrendiklerim</h2>
+<p>Kurumsal müşteriye hizmet veren bir portalda kullanıcıyı kazanan şey yalnızca hız değil, öngörülebilirlik: aynı işlem her seferinde aynı şekilde sonuçlanmalı ve sonucu kullanıcı kendisi görebilmeli.</p><h2>Teknolojiler</h2>
 <ul><li><b>Backend:</b> C#, .NET, REST API</li><li><b>Veritabanı:</b> SQL Server</li><li><b>Entegrasyonlar:</b> TÜRSAB acente doğrulama, merkezi biletleme platformu, turnike ve el terminalleri</li><li><b>Özellikler:</b> Toplu satış, QR'lı bilet üretimi, kampanya yönetimi, satış ve kullanım raporları</li><li><b>Arayüz:</b> Web portalı ve Android uygulaması</li></ul></div>
 <nav class="cs-next" aria-label="Diğer projeler"><a href="/projeler/el-terminali-uygulamasi">← El terminali ile bilet doğrulama</a><a href="/projeler/kurum-mobil-uygulamalari">Kurumun mobil uygulamaları →</a></nav>
 <div class="contact" style="margin-top:40px"><div><h2 style="margin-top:0">Benzer bir sisteme mi ihtiyacın var?</h2><p>Biletleme, geçiş kontrolü, donanım entegrasyonu ya da kamu entegrasyonları: kısaca anlat, en kısa sürede dönüş yaparım.</p></div>
@@ -172,6 +180,6 @@ gtag("js",new Date());gtag("config","G-3SZL3PBNQ6");</script>
 <div><h4>Birlikte çalışalım</h4><ul><li><a href="/hizmetler.html">Hizmetler ve teklif</a></li><li><a href="/ozgecmis">Özgeçmiş</a></li><li><a href="/#iletisim">İletişim</a></li><li><a href="https://www.linkedin.com/in/mfatihicin" rel="me noopener">LinkedIn</a></li></ul></div>
 <div><h4>Popüler araçlar</h4><ul><li><a href="/araclar/maas-hesaplama.html">Net Brüt Maaş Hesaplama</a></li><li><a href="/araclar/kidem-tazminati-hesaplama.html">Kıdem ve İhbar Tazminatı Hesaplama</a></li><li><a href="/araclar/site-guvenli-mi.html">Site Güvenli mi? Sorgulama</a></li><li><a href="/araclar/internet-hiz-testi.html">İnternet Hız Testi</a></li><li><a href="/araclar/pdf-birlestirme.html">PDF Birleştirme</a></li><li><a href="/araclar/doviz-altin-cevirici.html">Döviz ve Altın Çevirici</a></li></ul></div>
 </div><div class="foot-bottom"><span>© <span id="year">2026</span> Mehmet Fatih İçin · Araçlar tarayıcında çalışır, girdiğin veriler sunucuya gönderilmez.</span><span class="row"><a href="/gizlilik.html">Gizlilik</a><button type="button" class="linkbtn" data-consent>Çerez tercihleri</button><a href="/en/" hreflang="en">English</a><a href="/sitemap.xml">Site haritası</a></span></div></div></footer>
-<script src="/assets/site.js?v=7"></script>
+<script src="/assets/site.js?v=8"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=9">
+<link rel="stylesheet" href="/assets/style.css?v=10">
 <meta name="google-site-verification" content="J-4BMNQ-aoJ_CTDvmhIF6c-XFz1i_h6v_tL80a5kwK4">
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var _c=null;try{_c=localStorage.getItem("consent")}catch(e){}
 gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:_c==="granted"?"granted":"denied",wait_for_update:500});
@@ -57,6 +57,7 @@ gtag("js",new Date());gtag("config","G-3SZL3PBNQ6");</script>
 <div class="tool"><div class="inline"><div><label for="s">İşe giriş tarihi</label><input type="text" id="s" placeholder="GG.AA.YYYY" value="01.03.2019"></div><div><label for="e">İşten çıkış tarihi</label><input type="text" id="e" placeholder="GG.AA.YYYY"></div></div>
 <div class="inline"><div><label for="w">Giydirilmiş brüt aylık ücret (₺)</label><input type="number" id="w" value="60000" min="0"></div><div><label for="cap">Kıdem tavanı (₺)</label><input type="number" id="cap" step="0.01"></div><div><label for="tr">İhbar için gelir vergisi oranı</label><select id="tr"><option value=".15">%15</option><option value=".20" selected>%20</option><option value=".27">%27</option><option value=".35">%35</option><option value=".40">%40</option></select></div></div>
 <dl class="kv" style="margin-top:18px;font-size:17px"><dt>Çalışma süresi</dt><dd id="dur"></dd><dt>Kıdem tazminatı (brüt)</dt><dd id="kb"></dd><dt>Damga vergisi</dt><dd id="kd"></dd><dt>Kıdem tazminatı (net)</dt><dd id="kn" style="color:var(--accent);font-weight:700"></dd><dt>İhbar süresi</dt><dd id="is"></dd><dt>İhbar tazminatı (brüt)</dt><dd id="ib"></dd><dt>İhbar tazminatı (net, yaklaşık)</dt><dd id="in"></dd></dl></div>
+<p class="byline">Hazırlayan: <a href="/ozgecmis">Mehmet Fatih İçin</a>, yazılım ve veritabanı uzmanı. Vergi ve yasal parametreler Kasım 2026 itibarıyla günceldir; yeni yıl parametreleri açıklandığında güncellenir.</p>
 <i hidden data-tool-id="kidem-tazminati-hesaplama"></i>
 <section class="nextstep" aria-label="Sıradaki adım"><h2>Sıradaki adım</h2><div class="tgrid"><a class="tcard" href="/araclar/maas-hesaplama.html"><span class="tico" aria-hidden="true">💼</span><span class="tx"><b>Net Brüt Maaş Hesaplama</b><small>Yeni işteki net maaşını hesapla</small></span></a><a class="tcard" href="/araclar/is-gunu-hesaplama.html"><span class="tico" aria-hidden="true">🗓️</span><span class="tx"><b>İş Günü Hesaplama</b><small>İhbar süresindeki iş günlerini say</small></span></a></div></section>
 <details class="embed-box"><summary>Bu aracı kendi siten ekle</summary><p class="muted">Aşağıdaki kodu sitenin HTML'ine yapıştır; araç sayfanda çalışır, güncellemeler otomatik gelir. Ücretsizdir.</p>
@@ -98,6 +99,6 @@ function calc(){const s=pd($('s').value),e=pd($('e').value),w=+$('w').value||0;i
 <div><h4>Birlikte çalışalım</h4><ul><li><a href="/hizmetler.html">Hizmetler ve teklif</a></li><li><a href="/ozgecmis">Özgeçmiş</a></li><li><a href="/#iletisim">İletişim</a></li><li><a href="https://www.linkedin.com/in/mfatihicin" rel="me noopener">LinkedIn</a></li></ul></div>
 <div><h4>Popüler araçlar</h4><ul><li><a href="/araclar/maas-hesaplama.html">Net Brüt Maaş Hesaplama</a></li><li><a href="/araclar/kidem-tazminati-hesaplama.html">Kıdem ve İhbar Tazminatı Hesaplama</a></li><li><a href="/araclar/site-guvenli-mi.html">Site Güvenli mi? Sorgulama</a></li><li><a href="/araclar/internet-hiz-testi.html">İnternet Hız Testi</a></li><li><a href="/araclar/pdf-birlestirme.html">PDF Birleştirme</a></li><li><a href="/araclar/doviz-altin-cevirici.html">Döviz ve Altın Çevirici</a></li></ul></div>
 </div><div class="foot-bottom"><span>© <span id="year">2026</span> Mehmet Fatih İçin · Araçlar tarayıcında çalışır, girdiğin veriler sunucuya gönderilmez.</span><span class="row"><a href="/gizlilik.html">Gizlilik</a><button type="button" class="linkbtn" data-consent>Çerez tercihleri</button><a href="/en/" hreflang="en">English</a><a href="/sitemap.xml">Site haritası</a></span></div></div></footer>
-<script src="/assets/site.js?v=7"></script>
+<script src="/assets/site.js?v=8"></script>
 </body>
 </html>

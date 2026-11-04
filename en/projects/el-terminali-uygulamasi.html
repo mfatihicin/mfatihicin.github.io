@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=9">
+<link rel="stylesheet" href="/assets/style.css?v=10">
 <meta name="google-site-verification" content="J-4BMNQ-aoJ_CTDvmhIF6c-XFz1i_h6v_tL80a5kwK4">
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var _c=null;try{_c=localStorage.getItem("consent")}catch(e){}
 gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:_c==="granted"?"granted":"denied",wait_for_update:500});
@@ -144,7 +144,11 @@ gtag("js",new Date());gtag("config","G-3SZL3PBNQ6");</script>
 
 
 </svg></div><figcaption>Simplified flow. Internal addresses, servers and security layers are not shown.</figcaption></figure>
-<div class="article"><h2>The problem</h2><p>Not every entrance has a turnstile: garden and section entrances, event areas, group entries and times when a turnstile is under maintenance. Tickets still had to be validated through the system at these points.</p><h2>My role</h2><p>Sole developer: React Native mobile app, the API side, field testing and go-live.</p><h2>The solution</h2><p>The handheld terminal uses the same central API as the turnstiles. Staff scan the QR code, the ticket is validated and the result is clear at a glance: valid or invalid. Scans land in the same pool as turnstile entries, so reports do not treat them as a separate channel.</p><h2>Outcome</h2><ul><li>Entrances without turnstiles joined the same validation and reporting flow.</li></ul><h2>Technologies</h2><ul><li><b>Mobile:</b> React Native</li><li><b>Backend:</b> C#, .NET, REST API</li><li><b>Database:</b> SQL Server</li><li><b>Hardware:</b> Android handheld terminal</li></ul></div>
+<div class="article"><h2>The problem</h2><p>Not every entrance has a turnstile: garden and section entrances, event areas, group entries and times when a turnstile is under maintenance. Tickets still had to be validated through the system at these points.</p><h2>My role</h2><p>Sole developer: React Native mobile app, the API side, field testing and go-live.</p><h2>The solution</h2><p>The handheld terminal uses the same central API as the turnstiles. Staff scan the QR code, the ticket is validated and the result is clear at a glance: valid or invalid. Scans land in the same pool as turnstile entries, so reports do not treat them as a separate channel.</p><h2>Outcome</h2><ul><li>Entrances without turnstiles joined the same validation and reporting flow.</li></ul><h2>Decisions I made</h2>
+<ul><li><b>The same rules as the turnstiles:</b> the terminal carries no validation logic of its own; it uses the same central API. Rules change in one place.</li>
+<li><b>The result at a glance:</b> at a busy entrance staff have no time to read. The result is large, coloured and a single word: valid or invalid.</li>
+<li><b>One pool of data:</b> handheld scans land in the same records as turnstile entries, so the visitor count and reports stay correct whatever the entry type.</li>
+<li><b>React Native:</b> building and maintaining one codebase mattered a great deal on a project run by a single developer.</li></ul><h2>Technologies</h2><ul><li><b>Mobile:</b> React Native</li><li><b>Backend:</b> C#, .NET, REST API</li><li><b>Database:</b> SQL Server</li><li><b>Hardware:</b> Android handheld terminal</li></ul></div>
 <nav class="cs-next" aria-label="Other projects"><a href="/en/projects/merkezi-e-bilet-ve-gise">← Central e-ticketing and box-office platform</a><a href="/en/projects/acente-portali">B2B ticketing portal for travel agencies →</a></nav>
 <div class="contact" style="margin-top:40px"><div><h2 style="margin-top:0">Need a similar system?</h2><p>Ticketing, access control, hardware or public-sector integrations: tell me briefly what you need and I'll get back to you soon.</p></div>
 <div class="row"><a class="btn" href="/en/services#quote">Request a quote</a><a class="btn ghost" href="mailto:mfatihicin@gmail.com?subject=Project%20inquiry">Email</a><a class="btn ghost" href="https://wa.me/905418388004" target="_blank" rel="noopener">WhatsApp</a></div></div>
@@ -157,6 +161,6 @@ gtag("js",new Date());gtag("config","G-3SZL3PBNQ6");</script>
 <div><h4>Work with me</h4><ul><li><a href="/en/services">Services and quote</a></li><li><a href="/en/resume">Resume</a></li><li><a href="/en/#contact">Contact</a></li><li><a href="https://www.linkedin.com/in/mfatihicin" rel="me noopener">LinkedIn</a></li></ul></div>
 <div><h4>Popular tools</h4><ul><li><a href="/en/tools/what-is-my-ip">What is my IP</a></li><li><a href="/en/tools/internet-speed-test">Internet speed test</a></li><li><a href="/en/tools/is-this-website-safe">Is this website safe?</a></li><li><a href="/en/tools/merge-pdf">Merge PDF</a></li><li><a href="/en/tools/image-compressor">Image compressor</a></li><li><a href="/en/tools/qr-code-generator">QR code generator</a></li></ul></div>
 </div><div class="foot-bottom"><span>© <span id="year">2026</span> Mehmet Fatih İçin</span><span class="row"><a href="/gizlilik.html">Privacy (TR)</a><button type="button" class="linkbtn" data-consent>Cookie settings</button><a href="/" hreflang="tr">Türkçe</a><a href="/sitemap.xml">Sitemap</a></span></div></div></footer>
-<script src="/assets/site.js?v=7"></script>
+<script src="/assets/site.js?v=8"></script>
 </body>
 </html>

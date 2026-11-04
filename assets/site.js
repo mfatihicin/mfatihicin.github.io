@@ -291,7 +291,7 @@ if ("serviceWorker" in navigator && location.protocol === "https:" && window.top
   const P = "mfatihicin-site", K = "AIzaSyC7jqxOwIn_SyUmPP8GSZ3hxHgwvB7H7Vo";
   fetch(`https://firestore.googleapis.com/v1/projects/${P}/databases/(default)/documents:runQuery?key=${K}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ structuredQuery: { from: [{ collectionId: "counters" }], limit: 500 } }) })
     .then((r) => r.json()).then((j) => {
-      const n = j.reduce((s, x) => s + (x.document && !/^test/.test(x.document.name.split("/").pop()) ? +x.document.fields.n.integerValue : 0), 0);
+      const n = j.reduce((s, x) => s + (x.document && !/^(test|dz-)/.test(x.document.name.split("/").pop()) ? +x.document.fields.n.integerValue : 0), 0);
       if (n >= 100) { el.textContent = el.dataset.tpl.replace("{n}", n.toLocaleString(document.documentElement.lang === "en" ? "en-US" : "tr-TR")); el.hidden = false; }
     }).catch(() => {});
 })();

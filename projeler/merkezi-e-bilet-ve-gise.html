@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=9">
+<link rel="stylesheet" href="/assets/style.css?v=10">
 <meta name="google-site-verification" content="J-4BMNQ-aoJ_CTDvmhIF6c-XFz1i_h6v_tL80a5kwK4">
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var _c=null;try{_c=localStorage.getItem("consent")}catch(e){}
 gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:_c==="granted"?"granted":"denied",wait_for_update:500});
@@ -157,7 +157,18 @@ gtag("js",new Date());gtag("config","G-3SZL3PBNQ6");</script>
 <p>Çevrim içi ödemeler banka sanal POS entegrasyonuyla alınıyor. Bayram sabahı gibi ani yük artışlarında sık okunan veriler önbellekten sunuluyor; veritabanına yalnızca gerçekten gerektiğinde gidiliyor. Gişe uygulaması da aynı altyapıyı kullandığı için gün sonu raporları tüm kanalları birlikte gösteriyor.</p>
 <h2>Sonuç</h2>
 <ul><li>Satış, ödeme ve giriş tek kaynaktan izlenebilir hale geldi; yoğun dönemlerde kuyruğun bir kısmı çevrim içi satışa kaydı.</li></ul>
-<h2>Teknolojiler</h2>
+<h2>Zor kısımlar ve verdiğim kararlar</h2>
+<h3>Tek doğrulama noktası</h3>
+<p>Satış kanalları çoğaldıkça her kanalın kendi kurallarını taşıması, bir gün birinin diğerinden farklı karar vermesi demekti. Bütün kanalları aynı merkezi API'ye bağladım: bilet kuralı tek yerde yaşıyor; web, gişe, acente, turnike ve el terminali aynı soruya aynı cevabı alıyor.</p>
+<h3>Bayram sabahı</h3>
+<p>Bir biletleme sisteminin kalitesi sıradan bir günde değil, en yoğun saatte ölçülür. Yapılar, seanslar ve fiyatlar gibi sık okunan ama seyrek değişen veriler bellek içi önbellekten sunuluyor; veritabanı, satış ve doğrulama gibi gerçekten gereken işlere kalıyor. Doğrulama sorgusunu da tek kayda dokunacak şekilde sade tuttum.</p>
+<h3>Yarım kalan ödeme</h3>
+<p>Ödeme bankada başarılı olup bilet üretilmeden bağlantı koparsa ziyaretçi ödemiş ama bileti alamamış olur. Sipariş, ödeme ve bilet üretimini her adımı izlenebilen durumlarla tasarladım; yarım kalan bir işlem kaybolmuyor, hangi adımda kaldığı belli oluyor.</p>
+<h3>Raporlar tek kaynaktan</h3>
+<p>Gişe uygulaması da aynı altyapıyı kullandığı için gün sonu mutabakatı ayrı sistemlerin çıktılarını birleştirmekle uğraşmadan yapılıyor.</p>
+<h2>Öğrendiklerim</h2>
+<p>Tasarım kararlarının çoğunu tek bir soruya göre verdim: “Bayram sabahı, açılış saatinde ne olur?” Normal günde fark edilmeyen her küçük yavaşlık, o saatte kuyruğa dönüşüyor.</p>
+<p class="cs-try">İlgili yazı: <a href="/blog/yogun-saatlerde-bilet-dogrulama-veritabani-tasarimi.html">Yoğun saatlerde bilet doğrulama: tek kullanımlık biletler için veritabanı tasarımı</a></p><h2>Teknolojiler</h2>
 <ul><li><b>Backend:</b> C#, .NET, ortak REST API katmanı (rol tabanlı yetkilendirme)</li><li><b>Veritabanı:</b> SQL Server</li><li><b>Performans:</b> Bellek içi önbellek katmanı</li><li><b>Ödeme:</b> Banka sanal POS entegrasyonu</li><li><b>Entegrasyonlar:</b> Turnike ve el terminalleri, gişe, acente portalı, e-Devlet ve KPS kimlik doğrulama</li><li><b>Arayüz:</b> Web (çevrim içi satış), gişe uygulaması</li></ul></div>
 <nav class="cs-next" aria-label="Diğer projeler"><a href="/projeler/turnike-ve-gecis-kontrol">← Turnike ve geçiş kontrol sistemi</a><a href="/projeler/el-terminali-uygulamasi">El terminali ile bilet doğrulama →</a></nav>
 <div class="contact" style="margin-top:40px"><div><h2 style="margin-top:0">Benzer bir sisteme mi ihtiyacın var?</h2><p>Biletleme, geçiş kontrolü, donanım entegrasyonu ya da kamu entegrasyonları: kısaca anlat, en kısa sürede dönüş yaparım.</p></div>
@@ -171,6 +182,6 @@ gtag("js",new Date());gtag("config","G-3SZL3PBNQ6");</script>
 <div><h4>Birlikte çalışalım</h4><ul><li><a href="/hizmetler.html">Hizmetler ve teklif</a></li><li><a href="/ozgecmis">Özgeçmiş</a></li><li><a href="/#iletisim">İletişim</a></li><li><a href="https://www.linkedin.com/in/mfatihicin" rel="me noopener">LinkedIn</a></li></ul></div>
 <div><h4>Popüler araçlar</h4><ul><li><a href="/araclar/maas-hesaplama.html">Net Brüt Maaş Hesaplama</a></li><li><a href="/araclar/kidem-tazminati-hesaplama.html">Kıdem ve İhbar Tazminatı Hesaplama</a></li><li><a href="/araclar/site-guvenli-mi.html">Site Güvenli mi? Sorgulama</a></li><li><a href="/araclar/internet-hiz-testi.html">İnternet Hız Testi</a></li><li><a href="/araclar/pdf-birlestirme.html">PDF Birleştirme</a></li><li><a href="/araclar/doviz-altin-cevirici.html">Döviz ve Altın Çevirici</a></li></ul></div>
 </div><div class="foot-bottom"><span>© <span id="year">2026</span> Mehmet Fatih İçin · Araçlar tarayıcında çalışır, girdiğin veriler sunucuya gönderilmez.</span><span class="row"><a href="/gizlilik.html">Gizlilik</a><button type="button" class="linkbtn" data-consent>Çerez tercihleri</button><a href="/en/" hreflang="en">English</a><a href="/sitemap.xml">Site haritası</a></span></div></div></footer>
-<script src="/assets/site.js?v=7"></script>
+<script src="/assets/site.js?v=8"></script>
 </body>
 </html>

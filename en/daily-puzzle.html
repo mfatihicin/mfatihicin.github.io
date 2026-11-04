@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=9">
+<link rel="stylesheet" href="/assets/style.css?v=10">
 <meta name="google-site-verification" content="J-4BMNQ-aoJ_CTDvmhIF6c-XFz1i_h6v_tL80a5kwK4">
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var _c=null;try{_c=localStorage.getItem("consent")}catch(e){}
 gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:_c==="granted"?"granted":"denied",wait_for_update:500});
@@ -76,22 +76,26 @@ gtag("js",new Date());gtag("config","G-3SZL3PBNQ6");</script>
 .dz-dist i{display:block;height:20px;background:var(--card2);border-radius:4px;min-width:22px;text-align:right;padding-right:6px;font-style:normal;color:var(--text)}
 .dz-dist i.me{background:var(--brand);color:var(--brand-ink)}
 .dz-legend{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-top:10px}
+.dz-y{text-align:center;color:var(--muted);margin:18px 0 0;font-size:15px}.dz-cnt{margin-left:8px;color:var(--accent2);font-weight:600}
 .dz-legend span::before{content:"";display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:6px;vertical-align:-2px;background:var(--c)}
 </style><section style="padding-top:36px"><div class="wrap"><nav class="crumbs" aria-label="breadcrumb"><a href="/en/">Home</a> › <a href="/en/games/">Games</a> › Daily Puzzle</nav>
 <h1 style="text-align:center">📅 Daily Puzzle</h1><p class="lead" style="text-align:center;margin:0 auto 22px">A new 4-digit code every day, the same for everyone. No digit repeats. Can you crack it in 6 guesses?</p>
-<div class="dz tool"><div class="dz-meta"><span>Daily Puzzle <b id="dz-no"></b></span><span class="dz-legend" style="margin:0"><span style="--c:#1F8A5B">Right digit, right spot</span><span style="--c:#C9961A">In the code, wrong spot</span></span></div>
+<div class="dz tool"><div class="dz-meta"><span>Daily Puzzle <b id="dz-no"></b> <span id="dz-n" class="dz-cnt"></span></span><span class="dz-legend" style="margin:0"><span style="--c:#1F8A5B">Right digit, right spot</span><span style="--c:#C9961A">In the code, wrong spot</span></span></div>
 <div class="dz-board" id="dz-b"></div><p class="dz-msg" id="dz-m" role="status"></p>
 <div class="dz-pad" id="dz-pad"><button type="button" data-d="1">1</button><button type="button" data-d="2">2</button><button type="button" data-d="3">3</button><button type="button" data-d="4">4</button><button type="button" data-d="5">5</button><button type="button" data-d="6">6</button><button type="button" data-d="7">7</button><button type="button" data-d="8">8</button><button type="button" data-d="9">9</button><button type="button" data-d="0">0</button><button type="button" class="wide" data-k="Backspace">Delete</button><button type="button" class="wide" data-k="Enter" style="grid-column:span 3;background:var(--brand);color:var(--brand-ink);border-color:var(--brand)">Guess</button></div>
 <div class="dz-legend"><span style="--c:var(--card2)">Not in the code</span></div>
-<div class="dz-end" id="dz-e" hidden></div></div>
+<div class="dz-end" id="dz-e" hidden></div>
+<p class="dz-y" id="dz-y" hidden>Yesterday's code: <button type="button" class="btn" id="dz-yb" style="padding:4px 12px;min-height:0">Reveal</button> · <a href="/en/daily-puzzle-archive">Past puzzles</a></p></div>
 <i hidden data-tool-id="en-daily-puzzle"></i>
 <div class="article" style="margin-top:48px"><h2>How to play</h2><p>The code is a 4-digit number with no repeated digits (for example 4071). Type a guess and press <b>Guess</b>. Each digit changes colour: <b>green</b> means the right digit in the right place, <b>yellow</b> means it is in the code but somewhere else, and <b>grey</b> means it is not in the code. Find the code within six guesses.</p>
 <h2>Strategy</h2><p>Use eight different digits across your first two guesses to learn most of the code straight away, then move the yellow digits around. Good players usually solve it in 4–5 guesses.</p>
 <h2>Is it the same every day?</h2><p>Yes. The puzzle resets every day at midnight Türkiye time (UTC+3) and everyone plays the same code. Share your result as an emoji grid without giving the answer away.</p><h2>Frequently asked questions</h2><details><summary>When does the daily puzzle reset?</summary><p>Every day at 00:00 Türkiye time (21:00 UTC).</p></details><details><summary>Where is my streak saved?</summary><p>Only in this device's browser; no sign-up or email needed.</p></details><details><summary>Can a digit repeat?</summary><p>No, all four digits are different.</p></details></div>
-</div></section><script>window.DZ={"name": "Daily Puzzle", "win": ["Genius!", "Magnificent!", "Brilliant!", "Great!", "Nice!", "Phew!"], "lose": "Not this time", "solved": "You solved it in {n} guesses.", "was": "The code was", "played": "Played", "wins": "Win rate", "streak": "Streak", "max": "Best streak", "share": "Share result", "next": "Next puzzle in", "copied": "Copied", "dup": "You already used that digit", "short": "Enter 4 digits", "pct": "Fewer guesses than {p}% of today's solvers ({t} solves)."};</script><script>(()=>{const S=window.DZ;const $=i=>document.getElementById(i);
+</div></section><script>window.DZ={"name": "Daily Puzzle", "win": ["Genius!", "Magnificent!", "Brilliant!", "Great!", "Nice!", "Phew!"], "lose": "Not this time", "solved": "You solved it in {n} guesses.", "was": "The code was", "played": "Played", "wins": "Win rate", "streak": "Streak", "max": "Best streak", "share": "Share result", "next": "Next puzzle in", "copied": "Copied", "dup": "You already used that digit", "short": "Enter 4 digits", "pct": "Fewer guesses than {p}% of today's solvers ({t} solves).", "today": "{n} people solved it today"};</script><script>(()=>{const S=window.DZ;const $=i=>document.getElementById(i);
 const ist=new Date(Date.now()+3*3600e3);const day=Math.floor((Date.UTC(ist.getUTCFullYear(),ist.getUTCMonth(),ist.getUTCDate())-Date.UTC(2026,10,1))/864e5)+1;
 function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-const r=rng(day*7919+1453);const pool=[0,1,2,3,4,5,6,7,8,9];for(let i=9;i>0;i--){const j=Math.floor(r()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}const code=pool.slice(0,4).join('');
+const codeFor=d=>{const r=rng(d*7919+1453);const pool=[0,1,2,3,4,5,6,7,8,9];for(let i=9;i>0;i--){const j=Math.floor(r()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}return pool.slice(0,4).join('')};const code=codeFor(day);
+if(day>1){$('dz-y').hidden=false;$('dz-yb').onclick=()=>{$('dz-yb').outerHTML='<b style="font-family:var(--mono);letter-spacing:.1em">'+codeFor(day-1)+'</b>'}}
+if(window.MS&&MS.counters)MS.counters(['dz-'+day]).then(o=>{const n=o['dz-'+day]||0;if(n>=3){$('dz-n').textContent=S.today.replace('{n}',n.toLocaleString(document.documentElement.lang))}}).catch(()=>{});
 const KEY='dz:'+day;let st;try{st=JSON.parse(localStorage.getItem(KEY))||null}catch(e){st=null}st=st||{g:[],done:false,win:false};
 let stats;try{stats=JSON.parse(localStorage.getItem('dz:stats'))||null}catch(e){stats=null}stats=stats||{played:0,wins:0,streak:0,max:0,last:0,dist:[0,0,0,0,0,0]};
 let cur='';$('dz-no').textContent='#'+day;
@@ -102,7 +106,7 @@ document.querySelectorAll('.dz-pad [data-d]').forEach(b=>{b.className=ks[b.datas
 function msg(t){$('dz-m').textContent=t}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(st));localStorage.setItem('dz:stats',JSON.stringify(stats))}catch(e){}}
 function finish(){st.done=true;if(!st.counted){st.counted=true;stats.played++;if(st.win){stats.wins++;stats.dist[st.g.length-1]++;stats.streak=stats.last===day-1?stats.streak+1:1;stats.max=Math.max(stats.max,stats.streak)}else stats.streak=0;stats.last=day;
-if(st.win&&window.MS)MS.submit('daily',st.g.length);if(window.gtag)gtag('event','daily_puzzle',{day,win:st.win,tries:st.g.length})}save();end()}
+if(st.win&&window.MS){MS.submit('daily',st.g.length);MS.hit('dz-'+day)}if(window.gtag)gtag('event','daily_puzzle',{day,win:st.win,tries:st.g.length})}save();end()}
 function grid(){return st.g.map(g=>score(g).map(s=>s==='g'?'🟩':s==='y'?'🟨':'⬜').join('')).join('\n')}
 function end(){const w=st.win;const n=st.g.length;$('dz-e').hidden=false;
 $('dz-e').innerHTML=`<h2 style="margin:0">${w?S.win[Math.min(n,6)-1]:S.lose}</h2><p class="muted">${w?S.solved.replace('{n}',n):S.was+' <b style="font-family:var(--mono)">'+code+'</b>'}</p>
@@ -124,6 +128,6 @@ board();if(st.done)end()})();</script>
 <div><h4>Work with me</h4><ul><li><a href="/en/services">Services and quote</a></li><li><a href="/en/resume">Resume</a></li><li><a href="/en/#contact">Contact</a></li><li><a href="https://www.linkedin.com/in/mfatihicin" rel="me noopener">LinkedIn</a></li></ul></div>
 <div><h4>Popular tools</h4><ul><li><a href="/en/tools/what-is-my-ip">What is my IP</a></li><li><a href="/en/tools/internet-speed-test">Internet speed test</a></li><li><a href="/en/tools/is-this-website-safe">Is this website safe?</a></li><li><a href="/en/tools/merge-pdf">Merge PDF</a></li><li><a href="/en/tools/image-compressor">Image compressor</a></li><li><a href="/en/tools/qr-code-generator">QR code generator</a></li></ul></div>
 </div><div class="foot-bottom"><span>© <span id="year">2026</span> Mehmet Fatih İçin</span><span class="row"><a href="/gizlilik.html">Privacy (TR)</a><button type="button" class="linkbtn" data-consent>Cookie settings</button><a href="/" hreflang="tr">Türkçe</a><a href="/sitemap.xml">Sitemap</a></span></div></div></footer>
-<script src="/assets/site.js?v=7"></script>
+<script src="/assets/site.js?v=8"></script>
 </body>
 </html>
