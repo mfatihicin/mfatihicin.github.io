@@ -179,3 +179,27 @@ window.SITE = {
   const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
   document.querySelectorAll("kbd[data-mod]").forEach((k) => (k.textContent = isMac ? "⌘K" : "Ctrl K"));
 })();
+
+/* ======================================================================
+   Çerez onayı — Google Analytics izin modu (analytics_storage)
+   ====================================================================== */
+(function () {
+  const EN = (document.documentElement.lang || "").toLowerCase().startsWith("en");
+  const T = EN ? { msg: "We use Google Analytics cookies to understand how the site is used. Nothing is used for ads.", more: "Details", ok: "Accept", no: "Decline", url: "/gizlilik.html" }
+               : { msg: "Sitenin nasıl kullanıldığını anlamak için Google Analytics çerezleri kullanıyoruz. Reklam için kullanılmaz.", more: "Ayrıntılar", ok: "Kabul et", no: "Reddet", url: "/gizlilik.html" };
+  const get = () => { try { return localStorage.getItem("consent"); } catch (e) { return null; } };
+  const set = (v) => { try { localStorage.setItem("consent", v); } catch (e) {} if (window.gtag) gtag("consent", "update", { analytics_storage: v === "granted" ? "granted" : "denied" }); };
+  let bar = null;
+  function show() {
+    if (bar) { bar.hidden = false; return; }
+    bar = document.createElement("div");
+    bar.className = "consent";
+    bar.setAttribute("role", "region");
+    bar.setAttribute("aria-label", EN ? "Cookie consent" : "Çerez onayı");
+    bar.innerHTML = `<p>${T.msg} <a href="${T.url}">${T.more}</a></p><div class="row"><button type="button" class="btn" data-v="denied">${T.no}</button><button type="button" class="btn primary" data-v="granted">${T.ok}</button></div>`;
+    bar.addEventListener("click", (e) => { const b = e.target.closest("button[data-v]"); if (!b) return; set(b.dataset.v); bar.hidden = true; });
+    document.body.appendChild(bar);
+  }
+  if (!get()) show();
+  document.querySelectorAll("[data-consent]").forEach((b) => b.addEventListener("click", show));
+})();
