@@ -52,7 +52,7 @@ window.SITE = {
     if (!S.phone) { el.remove(); return; }
     const kind = el.dataset.phone;
     if (kind === "tel") { el.href = "tel:+" + S.phone; el.querySelector("span") && (el.querySelector("span").textContent = fmt(S.phone)); }
-    if (kind === "wa") { el.href = "https://wa.me/" + S.phone + "?text=" + encodeURIComponent("Merhaba Mehmet Bey, web siteniz üzerinden ulaşıyorum."); }
+    if (kind === "wa") { el.href = "https://wa.me/" + S.phone + "?text=" + encodeURIComponent((document.documentElement.lang || "").startsWith("en") ? "Hi Mehmet, I am reaching out via your website." : "Merhaba Mehmet Bey, web siteniz üzerinden ulaşıyorum."); }
     el.hidden = false;
   });
   $$("[data-telegram]").forEach(el => { if (!S.telegram) { el.remove(); return; } el.href = "https://t.me/" + S.telegram; el.hidden = false; });
@@ -95,7 +95,8 @@ window.SITE = {
     let t = $(".toast"); if (!t) { t = document.createElement("div"); t.className = "toast"; document.body.appendChild(t); }
     t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 1800);
   };
-  window.copyText = async txt => { try { await navigator.clipboard.writeText(txt); toast("Kopyalandı"); } catch (e) { toast("Kopyalanamadı"); } };
+  const EN = (document.documentElement.lang || "").toLowerCase().startsWith("en");
+  window.copyText = async txt => { try { await navigator.clipboard.writeText(txt); toast(EN ? "Copied" : "Kopyalandı"); } catch (e) { toast(EN ? "Could not copy" : "Kopyalanamadı"); } };
   window.esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
@@ -106,14 +107,17 @@ window.SITE = {
    ====================================================================== */
 (function () {
   let data = null, items = [], sel = 0, box = null;
+  const EN = (document.documentElement.lang || "").toLowerCase().startsWith("en");
+  const TX = EN ? { label: "Search the site", ph: "Search tools, apps, projects… (e.g. ip, qr, pdf)", find: "Search", sel: "↑↓ select", open: "Enter open", close: "Esc close", load: "Loading…", none: (q) => `No results for “${esc(q)}”. Try a shorter word or browse <a href="/en/tools/">all tools</a>.`, err: "Could not load the search index. Refresh the page and try again.", idx: "/assets/search-en.json" }
+                : { label: "Sitede ara", ph: "Araç, uygulama, yazı ara… (ör. maaş, gizlilik, ip)", find: "Ara", sel: "↑↓ seç", open: "Enter aç", close: "Esc kapat", load: "Yükleniyor…", none: (q) => `“${esc(q)}” için sonuç yok. Daha kısa bir kelime dene ya da <a href="/araclar/">tüm araçlara</a> göz at.`, err: "Arama dizini yüklenemedi. Sayfayı yenileyip tekrar dene.", idx: "/assets/search.json" };
   const norm = (s) => (s || "").toLocaleLowerCase("tr").replace(/ı/g, "i").replace(/ş/g, "s").replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ö/g, "o").replace(/ç/g, "c").normalize("NFD").replace(/[̀-ͯ]/g, "");
   function build() {
     box = document.createElement("div");
     box.className = "cmdk";
     box.setAttribute("role", "dialog");
     box.setAttribute("aria-modal", "true");
-    box.setAttribute("aria-label", "Sitede ara");
-    box.innerHTML = '<div class="cmdk-box"><div class="cmdk-in"><span aria-hidden="true">🔎</span><input type="text" placeholder="Araç, uygulama, yazı ara… (ör. maaş, gizlilik, ip)" aria-label="Ara" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="cmdk-list"><kbd>Esc</kbd></div><div class="cmdk-list" id="cmdk-list" role="listbox"></div><div class="cmdk-foot"><span>↑↓ seç</span><span>Enter aç</span><span>Esc kapat</span></div></div>';
+    box.setAttribute("aria-label", TX.label);
+    box.innerHTML = '<div class="cmdk-box"><div class="cmdk-in"><span aria-hidden="true">🔎</span><input type="text" placeholder="' + TX.ph + '" aria-label="' + TX.find + '" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="cmdk-list"><kbd>Esc</kbd></div><div class="cmdk-list" id="cmdk-list" role="listbox"></div><div class="cmdk-foot"><span>' + TX.sel + '</span><span>' + TX.open + '</span><span>' + TX.close + '</span></div></div>';
     document.body.appendChild(box);
     box.addEventListener("click", (e) => { if (e.target === box) close(); });
     const inp = box.querySelector("input");
@@ -141,9 +145,9 @@ window.SITE = {
   }
   function draw(q) {
     const list = box.querySelector(".cmdk-list");
-    if (!data) { list.innerHTML = '<div class="cmdk-empty">Yükleniyor…</div>'; return; }
+    if (!data) { list.innerHTML = '<div class="cmdk-empty">' + TX.load + '</div>'; return; }
     items = data.map((it) => [score(it, q), it]).filter((x) => x[0] >= 0).sort((a, b) => b[0] - a[0]).slice(0, 12).map((x) => x[1]);
-    if (!items.length) { list.innerHTML = `<div class="cmdk-empty">“${esc(q)}” için sonuç yok. Daha kısa bir kelime dene ya da <a href="/araclar/">tüm araçlara</a> göz at.</div>`; return; }
+    if (!items.length) { list.innerHTML = `<div class="cmdk-empty">${TX.none(q)}</div>`; return; }
     list.innerHTML = items.map((it, i) => `<a href="${it.u}" role="option" id="cmdk-${i}"><span class="e" aria-hidden="true">${it.e || "•"}</span><span class="t"><b>${esc(it.t)}</b><small>${esc(it.d || "")}</small></span><span class="k">${esc(it.c)}</span></a>`).join("");
     list.querySelectorAll("a").forEach((a, i) => a.addEventListener("mousemove", () => { if (sel !== i) { sel = i; mark(); } }));
     mark();
@@ -163,7 +167,7 @@ window.SITE = {
     inp.value = prefill || "";
     inp.focus();
     draw(inp.value);
-    if (!data) fetch("/assets/search.json").then((r) => r.json()).then((j) => { data = j; draw(inp.value); }).catch(() => { box.querySelector(".cmdk-list").innerHTML = '<div class="cmdk-empty">Arama dizini yüklenemedi. Sayfayı yenileyip tekrar dene.</div>'; });
+    if (!data) fetch(TX.idx).then((r) => r.json()).then((j) => { data = j; draw(inp.value); }).catch(() => { box.querySelector(".cmdk-list").innerHTML = '<div class="cmdk-empty">' + TX.err + '</div>'; });
   }
   function close() { if (!box) return; box.classList.remove("open"); document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
   document.addEventListener("keydown", (e) => {
