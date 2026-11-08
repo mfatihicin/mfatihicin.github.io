@@ -8,7 +8,7 @@
 <div><label for="m">Girilen tutar</label><select id="m"><option value="ex">KDV hariç</option><option value="in">KDV dahil</option></select></div></div>
 <div class="row" style="margin-top:10px"><button class="btn" data-r="1">%1</button><button class="btn" data-r="10">%10</button><button class="btn" data-r="20">%20</button></div>
 <dl class="kv" style="margin-top:18px;font-size:18px"><dt>KDV hariç</dt><dd id="ex"></dd><dt>KDV tutarı</dt><dd id="kv"></dd><dt>KDV dahil</dt><dd id="inc" style="color:var(--accent);font-weight:700"></dd></dl></div></div><div class="emb-f"><span>KDV Hesaplama</span><a href="https://mfatihicin.com/araclar/kdv-hesaplama.html" target="_blank" rel="noopener">mfatihicin.com ile çalışır</a></div></div>
-<script src="/assets/site.js?v=8"></script><script>window.addEventListener('DOMContentLoaded',()=>{
+<script src="/assets/site.js?v=9"></script><script>window.addEventListener('DOMContentLoaded',()=>{
 const $=id=>document.getElementById(id);const f=n=>n.toLocaleString('tr-TR',{style:'currency',currency:'TRY'});
 function calc(){const a=+$('a').value||0,r=(+$('r').value||0)/100;let ex,inc;if($('m').value==='ex'){ex=a;inc=a*(1+r)}else{inc=a;ex=a/(1+r)}$('ex').textContent=f(ex);$('kv').textContent=f(inc-ex);$('inc').textContent=f(inc)}
 ['a','r','m'].forEach(i=>$(i).oninput=calc);document.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{$('r').value=b.dataset.r;calc()});calc();

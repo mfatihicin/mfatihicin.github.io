@@ -9,7 +9,7 @@
 <div class="grid g4" id="quick" style="margin-top:12px"></div>
 <h3 style="margin-top:28px">Altın</h3><div class="grid g3"><div class="card"><div class="muted">Ons altın (USD)</div><div class="big" style="font-size:24px" id="ons">…</div></div><div class="card"><div class="muted">Gram altın (24 ayar, ham)</div><div class="big" style="font-size:24px" id="gr">…</div></div><div class="card"><label for="gq" style="margin-top:0">Gram</label><input type="number" id="gq" value="10" min="0"><div class="big" style="font-size:22px;margin-top:8px" id="gt">…</div></div></div>
 <p class="note">Kurlar günlük güncellenen piyasa ortalamalarıdır; banka ve kuyumcu alış-satış fiyatları farklıdır. Gram altın, ons fiyatının 31,1035'e bölünüp dolar kuruyla çarpılmasıyla hesaplanır; işçilik ve makas dahil değildir.</p></div><div class="emb-f"><span>Döviz ve Altın Çevirici</span><a href="https://mfatihicin.com/araclar/doviz-altin-cevirici.html" target="_blank" rel="noopener">mfatihicin.com ile çalışır</a></div></div>
-<script src="/assets/site.js?v=8"></script><script>window.addEventListener('DOMContentLoaded',()=>{
+<script src="/assets/site.js?v=9"></script><script>window.addEventListener('DOMContentLoaded',()=>{
 const $=id=>document.getElementById(id);let R=null,USD=null;const MAIN=['TRY','USD','EUR','GBP','CHF','SAR','AED','RUB','JPY','CNY','AZN','GEL'];
 const fm=(x,c)=>{try{return x.toLocaleString('tr-TR',{style:'currency',currency:c,maximumFractionDigits:4})}catch(e){return x.toFixed(4)+' '+c}};
 async function load(){try{const r=await fetch('https://open.er-api.com/v6/latest/USD');const j=await r.json();R=j.rates;

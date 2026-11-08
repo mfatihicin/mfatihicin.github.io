@@ -8,7 +8,7 @@
 <div class="row" style="margin-top:10px"><label><input type="checkbox" id="tax" checked> Vergi ekle (BSMV + KKDF)</label><input type="number" id="tr" value="30" step="1" min="0" style="width:90px" aria-label="Toplam vergi oranı"><span class="muted">% (faiz üzerinden)</span></div>
 <dl class="kv" style="margin-top:18px;font-size:18px"><dt>Aylık taksit</dt><dd id="m" style="color:var(--accent);font-weight:700"></dd><dt>Toplam geri ödeme</dt><dd id="t"></dd><dt>Toplam faiz + vergi</dt><dd id="c"></dd></dl></div>
 <details><summary>Ay ay ödeme planı</summary><div class="overflow"><table id="plan"></table></div></details></div><div class="emb-f"><span>Kredi Hesaplama</span><a href="https://mfatihicin.com/araclar/kredi-hesaplama.html" target="_blank" rel="noopener">mfatihicin.com ile çalışır</a></div></div>
-<script src="/assets/site.js?v=8"></script><script>window.addEventListener('DOMContentLoaded',()=>{
+<script src="/assets/site.js?v=9"></script><script>window.addEventListener('DOMContentLoaded',()=>{
 const $=id=>document.getElementById(id);const f=n=>n.toLocaleString('tr-TR',{style:'currency',currency:'TRY'});
 function calc(){const P=+$('p').value||0,n=Math.max(1,+$('n').value|0);let r=(+$('i').value||0)/100;if($('tax').checked)r=r*(1+(+$('tr').value||0)/100);
  const m=r?P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):P/n;$('m').textContent=f(m);$('t').textContent=f(m*n);$('c').textContent=f(m*n-P);

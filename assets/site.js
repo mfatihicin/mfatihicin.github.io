@@ -5,10 +5,10 @@
 window.SITE = {
   // Cep numarası: uluslararası formatta, boşluksuz. Örn: "905551112233"
   // Boş bırakılırsa telefon ve WhatsApp butonları görünmez.
-  phone: "905418388004",
+  phone: "",
   // Telegram kullanıcı adı (t.me/...). Boşsa gizlenir.
   telegram: "mfatihicin",
-  email: "mfatihicin@gmail.com",
+  email: "support@mfatihicin.com",
 
   // Reklam altyapısı. provider: null => reklam yok (varsayılan).
   // Örnekler:
@@ -211,10 +211,18 @@ window.SITE = {
    ====================================================================== */
 (function () {
   const EN = (document.documentElement.lang || "").toLowerCase().startsWith("en");
-  const T = EN ? { msg: "We use Google Analytics cookies to understand how the site is used. Nothing is used for ads.", more: "Details", ok: "Accept", no: "Decline", url: "/gizlilik.html" }
-               : { msg: "Sitenin nasıl kullanıldığını anlamak için Google Analytics çerezleri kullanıyoruz. Reklam için kullanılmaz.", more: "Ayrıntılar", ok: "Kabul et", no: "Reddet", url: "/gizlilik.html" };
+  const T = EN ? { msg: "<b>Cookies.</b> We use Google Analytics cookies to measure site visits only if you allow it. This data is processed by Google LLC (USA). If you decline, the site works the same. You can change your choice anytime via “Cookie settings” at the bottom of the page.", more: "Privacy Policy", ok: "Accept", no: "Decline", url: "/en/privacy" }
+               : { msg: "<b>Çerezler.</b> Siteyi ziyaret istatistiklerini ölçmek için, yalnız izin verirsen Google Analytics çerezlerini kullanıyoruz. Bu veriler Google LLC (ABD) tarafından işlenir. İzin vermezsen site aynı şekilde çalışır. Tercihini sayfanın altındaki “Çerez tercihleri” bağlantısından istediğin an değiştirebilirsin.", more: "Gizlilik Politikası", ok: "Kabul et", no: "Reddet", url: "/gizlilik.html" };
   const get = () => { try { return localStorage.getItem("consent"); } catch (e) { return null; } };
-  const set = (v) => { try { localStorage.setItem("consent", v); } catch (e) {} if (window.gtag) gtag("consent", "update", { analytics_storage: v === "granted" ? "granted" : "denied" }); };
+  const set = (v) => { try { localStorage.setItem("consent", v); } catch (e) {}
+    if (v === "granted") { if (window.loadGA) loadGA(); return; }
+    if (window.gtag) gtag("consent", "update", { analytics_storage: "denied" });
+    // rıza geri alındı: GA çerezlerini sil
+    document.cookie.split(";").map((c) => c.trim().split("=")[0]).filter((n) => /^_ga/.test(n)).forEach((n) => {
+      const h = location.hostname, parts = h.split(".");
+      [h, "." + parts.slice(-2).join(".")].forEach((d) => { document.cookie = n + "=; Max-Age=0; path=/; domain=" + d; });
+      document.cookie = n + "=; Max-Age=0; path=/";
+    }); };
   let bar = null;
   function show() {
     if (bar) { bar.hidden = false; return; }
@@ -222,7 +230,7 @@ window.SITE = {
     bar.className = "consent";
     bar.setAttribute("role", "region");
     bar.setAttribute("aria-label", EN ? "Cookie consent" : "Çerez onayı");
-    bar.innerHTML = `<p>${T.msg} <a href="${T.url}">${T.more}</a></p><div class="row"><button type="button" class="btn" data-v="denied">${T.no}</button><button type="button" class="btn primary" data-v="granted">${T.ok}</button></div>`;
+    bar.innerHTML = `<p>${T.msg} <a href="${T.url}">${T.more}</a></p><div class="row"><button type="button" class="btn" data-v="denied">${T.no}</button><button type="button" class="btn" data-v="granted">${T.ok}</button></div>`;
     bar.addEventListener("click", (e) => { const b = e.target.closest("button[data-v]"); if (!b) return; set(b.dataset.v); bar.hidden = true; });
     document.body.appendChild(bar);
   }
