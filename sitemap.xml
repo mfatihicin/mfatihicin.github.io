@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://mfatihicin.com/</loc><lastmod>2026-11-04</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url><loc>https://mfatihicin.com/</loc><lastmod>2026-11-04</lastmod><changefreq>weekly</changefreq><priority>1.0</priority><image:image><image:loc>https://mfatihicin.com/assets/img/mehmet-fatih-icin.jpg</image:loc></image:image></url>
 <url><loc>https://mfatihicin.com/apps/</loc><lastmod>2026-11-04</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>https://mfatihicin.com/apps/streakflow/</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 <url><loc>https://mfatihicin.com/apps/parakit/</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -27,7 +27,7 @@
 <url><loc>https://mfatihicin.com/projeler/pdks</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://mfatihicin.com/projeler/tarihi-eser-takip</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://mfatihicin.com/projeler/</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-<url><loc>https://mfatihicin.com/ozgecmis</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mfatihicin.com/ozgecmis</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><image:image><image:loc>https://mfatihicin.com/assets/img/mehmet-fatih-icin.jpg</image:loc></image:image></url>
 <url><loc>https://mfatihicin.com/araclar/</loc><lastmod>2026-11-04</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>https://mfatihicin.com/araclar/site-guvenli-mi.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://mfatihicin.com/araclar/dns-sorgulama.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -73,7 +73,7 @@
 <url><loc>https://mfatihicin.com/araclar/nefes-egzersizi.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://mfatihicin.com/araclar/renk-kelime-testi.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://mfatihicin.com/araclar/sayi-hafiza-testi.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mfatihicin.com/hizmetler.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://mfatihicin.com/hizmetler.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority><image:image><image:loc>https://mfatihicin.com/assets/img/mehmet-fatih-icin.jpg</image:loc></image:image></url>
 <url><loc>https://mfatihicin.com/blog/</loc><lastmod>2026-11-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 <url><loc>https://mfatihicin.com/blog/okey-nasil-oynanir.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://mfatihicin.com/blog/tavla-nasil-oynanir.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -94,7 +94,7 @@
 <url><loc>https://mfatihicin.com/blog/sql-server-yavas-sorgu-analizi.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://mfatihicin.com/blog/net-core-guvenli-rest-api.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://mfatihicin.com/blog/web-sitesi-guvenligi-kontrol-listesi.html</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mfatihicin.com/en/</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mfatihicin.com/en/</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><image:image><image:loc>https://mfatihicin.com/assets/img/mehmet-fatih-icin.jpg</image:loc></image:image></url>
 <url><loc>https://mfatihicin.com/en/projects/turnike-ve-gecis-kontrol</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://mfatihicin.com/en/projects/merkezi-e-bilet-ve-gise</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://mfatihicin.com/en/projects/el-terminali-uygulamasi</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -105,8 +105,8 @@
 <url><loc>https://mfatihicin.com/en/projects/pdks</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://mfatihicin.com/en/projects/tarihi-eser-takip</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://mfatihicin.com/en/projects/</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mfatihicin.com/en/resume</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mfatihicin.com/en/services</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mfatihicin.com/en/resume</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority><image:image><image:loc>https://mfatihicin.com/assets/img/mehmet-fatih-icin.jpg</image:loc></image:image></url>
+<url><loc>https://mfatihicin.com/en/services</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><image:image><image:loc>https://mfatihicin.com/assets/img/mehmet-fatih-icin.jpg</image:loc></image:image></url>
 <url><loc>https://mfatihicin.com/en/tools/base64-encoder-decoder</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://mfatihicin.com/en/tools/url-encoder-decoder</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://mfatihicin.com/en/tools/uuid-generator</loc><lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
