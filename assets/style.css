@@ -518,3 +518,4 @@ main > section:not(.home-hero) h1{font-size:clamp(30px,4vw,46px)}
 .post-by{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.post-au{display:inline-flex;align-items:center;gap:8px;color:inherit;font-weight:600}.post-au .me-photo{width:32px;height:32px}
 @media (max-width:640px){.hero-photo{width:88px;height:88px}.cv-photo{width:96px;height:96px}}
 @media print{.cv-photo{box-shadow:none}}
+.home-hero h1 .handle{display:block;font:500 max(15px,.28em) var(--mono);color:var(--muted);letter-spacing:0;margin-top:.35em}
