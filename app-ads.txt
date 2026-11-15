@@ -880,6 +880,16 @@ rubiconproject.com, 27714, RESELLER, 0bfd66d529a55807
 bigo.sg,9vbr7uc29d,DIRECT
 monetrix.ai, 10697, RESELLER
 
+# BIGO Ads ek bayi satırları (15 Kas 2026)
+openx.com, 540543195, RESELLER, 6a698e2ec38604c6
+smartadserver.com, 6058, RESELLER, 060d053dcf45cbf3
+triplelift.com, 14867, RESELLER, 6c33edb13117fd86
+triplelift.com, 14923, RESELLER, 6c33edb13117fd86
+triplelift.com, 14919, RESELLER, 6c33edb13117fd86
+rubiconproject.com, 27945, RESELLER, 0bfd66d529a55807
+rubiconproject.com, 28945, RESELLER, 0bfd66d529a55807
+toponad.com, 16aec6880be2e7, RESELLER
+
 # Unity Ads (org 18967305358009, publisher 116501442) — cloud.unity.com Monetization Settings, 9 Kas 2026
 adwmg.com, 159512, RESELLER, c9688a22012618e7
 appads.in, 106246, RESELLER
